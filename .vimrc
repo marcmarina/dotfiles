@@ -16,7 +16,6 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 set number
-
 colorscheme onehalfdark
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -26,6 +25,8 @@ let g:loaded_clipboard_provider = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
+let g:airline_theme = 'bubblegum'
 
 " unicode symbols
 let g:airline_left_sep = '»'
