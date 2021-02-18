@@ -1,4 +1,4 @@
-sudo apt install git zsh zsh-syntax-highlighting neovim
+sudo apt install git zsh zsh-syntax-highlighting neovim ripgrep python3
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
