@@ -20,6 +20,9 @@ call plug#end()
 set number
 colorscheme onehalfdark
 
+set tabstop=2
+set shiftwidth=2
+
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 let g:loaded_clipboard_provider = 1
@@ -45,6 +48,7 @@ map <C-l> <C-w>l
 
 " CTRL-S to save
 map <C-s> :w<CR>
+map <C-w> :q<CR>
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
