@@ -68,7 +68,11 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,12 +103,11 @@ alias zshconfig="nvim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 export PATH=$PATH:/home/$USER/Scripts
+
+. $HOME/.asdf/asdf.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # prompt_context() {}
