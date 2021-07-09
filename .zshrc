@@ -107,7 +107,4 @@ export PATH=$PATH:/home/$USER/Scripts
 
 . $HOME/.asdf/asdf.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # prompt_context() {}
