@@ -48,7 +48,6 @@ map <C-l> <C-w>l
 
 " CTRL-S to save
 map <C-s> :w<CR>
-map <C-w> :q<CR>
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
