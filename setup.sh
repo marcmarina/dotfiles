@@ -3,6 +3,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 mkdir -p ~/.config
 cp -r nvim ~/.config/nvim
+cp .gitconfig ~/.gitconfig
 
 rm ~/.bashrc
 
