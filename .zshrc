@@ -11,9 +11,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-alias zshconfig="nvim ~/.zshrc"
-alias zshsource="source ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconf="nvim ~/.zshrc"
 
 export PATH=$PATH:/home/$USER/Scripts
 
