@@ -48,6 +48,9 @@ map <C-l> <C-w>l
 " CTRL-S to save
 map <C-s> :w<CR>
 
+" Clear highlights
+noremap \ :noh<return>
+
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
