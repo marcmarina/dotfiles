@@ -5,8 +5,6 @@ mkdir -p ~/.config
 cp -r nvim ~/.config/nvim
 cp .gitconfig ~/.gitconfig
 
-rm ~/.bashrc
-
 ln -s $PWD/.vimrc /home/$USER/.vimrc
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
