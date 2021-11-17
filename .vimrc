@@ -29,11 +29,15 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 let g:loaded_clipboard_provider = 1
 
-" NERDTree Config
+" FZF Config
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-g> :GFiles<CR>
+nnoremap <silent> <C-o> :Buffers<CR>
+nnoremap <C-f> :Rg!<CR>
 
+" NERDTree Config
 let NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
-nmap <C-f> :NERDTreeToggle<CR>
 
 " Exit Vim if NERDTree is the only window left.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
