@@ -25,7 +25,6 @@ colorscheme onehalfdark
 set mouse=a
 set tabstop=2
 set shiftwidth=2
-set clipboard=unnamedplus
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
@@ -34,6 +33,10 @@ nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :GFiles<CR>
 nnoremap <silent> <C-o> :Buffers<CR>
 nnoremap <C-f> :Rg!<CR>
+
+" Clipboard
+vmap <C-c> "+y 
+set clipboard=unnamedplus
 
 " NERDTree Config
 let NERDTreeShowHidden = 1
