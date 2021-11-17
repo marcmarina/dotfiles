@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'chrisbra/csv.vim'
 
 call plug#end()
 
@@ -24,10 +25,9 @@ colorscheme onehalfdark
 set mouse=a
 set tabstop=2
 set shiftwidth=2
+set clipboard=unnamedplus
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-let g:loaded_clipboard_provider = 1
 
 " FZF Config
 nnoremap <silent> <C-p> :Files<CR>
@@ -56,7 +56,7 @@ map <C-l> <C-w>l
 map <C-s> :w<CR>
 
 " Clear highlights
-noremap \ :noh<return>
+noremap <silent> \ :noh<return>
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
