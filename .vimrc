@@ -4,7 +4,6 @@ Plug 'shime/vim-livedown'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'editorconfig/editorconfig-vim'
-Plug 'Townk/vim-autoclose'
 Plug 'pangloss/vim-javascript'
 Plug 'digitaltoad/vim-pug'
 Plug 'ryanoasis/vim-devicons'
@@ -16,17 +15,24 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/csv.vim'
+Plug 'morhetz/gruvbox'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
 set number
-colorscheme onehalfdark
+colorscheme gruvbox
 
 set mouse=a
 set tabstop=2
 set shiftwidth=2
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" NERDCommenter
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
 
 " FZF Config
 nnoremap <silent> <C-p> :Files<CR>
@@ -59,13 +65,40 @@ map <C-l> <C-w>l
 map <C-s> :w<CR>
 
 " Clear highlights
-noremap <silent> \ :noh<return>
+ noremap <silent> \\ :noh<return>
+
+" Coc config
+let g:coc_global_extensions = [
+		 \ 'coc-tsserver',
+		 \ 'coc-prettier',
+		 \ 'coc-pairs',
+		 \ ]
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
-let g:airline_theme = 'bubblegum'
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+let g:airline_theme = 'gruvbox'
 
 " unicode symbols
 let g:airline_left_sep = '»'
