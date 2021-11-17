@@ -21,8 +21,11 @@ Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
-set number
+set number " Line numbers
+
+" Themes
 colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
 
 set mouse=a
 set tabstop=2
@@ -100,8 +103,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-let g:airline_theme = 'gruvbox'
 
 " unicode symbols
 let g:airline_left_sep = '»'
