@@ -18,3 +18,5 @@ export PATH=$PATH:/home/$USER/Scripts
 . $HOME/.asdf/asdf.sh
 
 # prompt_context() {}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

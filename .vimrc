@@ -13,6 +13,7 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf'
 
 call plug#end()
 
@@ -21,6 +22,8 @@ colorscheme onehalfdark
 
 set tabstop=2
 set shiftwidth=2
+
+set mouse=a
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
