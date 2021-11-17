@@ -33,6 +33,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " NERDCommenter
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " FZF Config
 nnoremap <silent> <C-p> :Files<CR>
@@ -72,6 +74,7 @@ let g:coc_global_extensions = [
 		 \ 'coc-tsserver',
 		 \ 'coc-prettier',
 		 \ 'coc-pairs',
+		 \ 'coc-json',
 		 \ ]
 
 if !exists('g:airline_symbols')
