@@ -14,16 +14,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 set number
 colorscheme onehalfdark
 
+set mouse=a
 set tabstop=2
 set shiftwidth=2
-
-set mouse=a
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
