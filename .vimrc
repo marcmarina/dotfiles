@@ -80,10 +80,6 @@ let g:coc_global_extensions = [
 		 \ 'coc-json',
 		 \ ]
 
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -106,6 +102,11 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" airline
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
 
 " unicode symbols
 let g:airline_left_sep = '»'
