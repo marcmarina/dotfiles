@@ -19,6 +19,7 @@ Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -104,7 +105,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-" airline
+" tagbar
+nmap <F8> :TagbarToggle<CR> " airline
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
