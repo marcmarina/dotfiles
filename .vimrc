@@ -18,6 +18,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
