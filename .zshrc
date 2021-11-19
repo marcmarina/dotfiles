@@ -14,9 +14,8 @@ source $ZSH/oh-my-zsh.sh
 alias zshconf="nvim ~/.zshrc"
 
 export PATH=$PATH:/home/$USER/Scripts
+export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs"
 
 . $HOME/.asdf/asdf.sh
-
-# prompt_context() {}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
