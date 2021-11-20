@@ -1,30 +1,29 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'shime/vim-livedown'
-Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'editorconfig/editorconfig-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'digitaltoad/vim-pug'
-Plug 'ryanoasis/vim-devicons'
-Plug 'joshdick/onedark.vim'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Workspace
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'chrisbra/csv.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/nerdtree'
+
+" Appearance
 Plug 'morhetz/gruvbox'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+
+" Coding
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fugitive'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'shime/vim-livedown'
+Plug 'chrisbra/csv.vim'
 
 call plug#end()
-
-set number " Line numbers
 
 " Themes
 colorscheme gruvbox
@@ -33,8 +32,7 @@ let g:airline_theme = 'gruvbox'
 set mouse=a
 set tabstop=2
 set shiftwidth=2
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+set number
 
 " NERDCommenter
 vmap ++ <plug>NERDCommenterToggle
@@ -106,6 +104,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " airline
 if !exists('g:airline_symbols')
