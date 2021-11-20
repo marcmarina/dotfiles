@@ -68,10 +68,10 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " CTRL-S to save
-map <C-s> :w<CR>
+map <silent> <C-s> :w<CR>
 
 " Clear highlights
- noremap <silent> \\ :noh<return>
+noremap <silent> \\ :noh<return>
 
 " Coc config
 let g:coc_global_extensions = [
