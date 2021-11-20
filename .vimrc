@@ -25,14 +25,33 @@ Plug 'chrisbra/csv.vim'
 
 call plug#end()
 
-" Themes
+
+" Appearance
 colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
+set number
 
+" Editor behaviour
 set mouse=a
 set tabstop=2
 set shiftwidth=2
-set number
+
+" Shortcutting split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Clipboard
+vmap <C-c> "+y 
+set clipboard=unnamedplus
+
+" CTRL-S to save
+map <silent> <C-s> :w<CR>
+
+" Clear highlights
+noremap <silent> \\ :noh<return>
+
 
 " NERDCommenter
 vmap ++ <plug>NERDCommenterToggle
@@ -40,15 +59,13 @@ nmap ++ <plug>NERDCommenterToggle
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
+
 " FZF Config
 nnoremap <silent> <C-p> :Files!<CR>
 nnoremap <silent> <C-g> :GFiles!<CR>
 nnoremap <silent> <C-b> :Buffers!<CR>
 nnoremap <C-f> :Rg!<CR>
 
-" Clipboard
-vmap <C-c> "+y 
-set clipboard=unnamedplus
 
 " NERDTree Config
 let NERDTreeShowHidden = 1
@@ -57,21 +74,6 @@ let g:NERDTreeQuitOnOpen = 1
 " Exit Vim if NERDTree is the only window left.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Start NERDTree when Vim is started without file arguments.
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Shortcutting split navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" CTRL-S to save
-map <silent> <C-s> :w<CR>
-
-" Clear highlights
-noremap <silent> \\ :noh<return>
 
 " Coc config
 let g:coc_global_extensions = [
@@ -106,6 +108,7 @@ function! s:show_documentation()
 endfunction
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 
 " airline
 if !exists('g:airline_symbols')
@@ -143,6 +146,7 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
 let g:airline#extensions#tabline#enabled = 1
+
 
 " Prettier
 let g:prettier#autoformat = 1
