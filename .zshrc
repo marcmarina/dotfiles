@@ -17,5 +17,3 @@ alias zshconf="nvim ~/.zshrc"
 
 export PATH=$PATH:/home/$USER/Scripts
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs"
-
-eval $(thefuck --alias)
