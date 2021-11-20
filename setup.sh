@@ -7,6 +7,7 @@ cp -r nvim ~/.config/nvim
 cp .gitconfig ~/.gitconfig
 
 ln -s $PWD/.vimrc /home/$USER/.vimrc
+ln -s $PWD/nvim/coc-settings.json /home/$USER/.config/nvim/coc-settings.json
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
