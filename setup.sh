@@ -13,6 +13,7 @@ rm ~/.zshrc
 ln -s $PWD/.zshrc /home/$USER/.zshrc
 ln -s $PWD/.vimrc /home/$USER/.vimrc
 ln -s $PWD/nvim /home/$USER/.config/nvim
+ln -s $PWD/.tool-versions /home/$USER/.tool-versions
 
 # Plugins/Packages
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
