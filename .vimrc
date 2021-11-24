@@ -82,6 +82,7 @@ let g:coc_global_extensions = [
 		 \ 'coc-pairs',
 		 \ 'coc-json',
 		 \ 'coc-docker',
+		 \ 'coc-eslint',
 		 \ ]
 
 " Use <c-space> to trigger completion.
