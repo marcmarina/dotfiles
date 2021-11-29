@@ -54,7 +54,8 @@ noremap <silent> \\ :noh<return>
 
 
 " Custom Commands
-command! CopyFilename :let @+ = expand("%")
+command! CopyFilename :let @+ = expand("%") " Copy relative path to the current buffer
+command! -nargs=1 NewFile :e %:p:h/<args> " Create new file with given name in the current directory
 
 
 " NERDCommenter
