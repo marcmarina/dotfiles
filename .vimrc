@@ -43,7 +43,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Clipboard
-vmap <C-c> "+y 
+vmap <C-c> "+y
 set clipboard=unnamedplus
 
 " CTRL-S to save
@@ -82,13 +82,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Coc config
 let g:coc_global_extensions = [
-		 \ 'coc-tsserver',
-		 \ 'coc-prettier',
-		 \ 'coc-pairs',
-		 \ 'coc-json',
-		 \ 'coc-docker',
-		 \ 'coc-eslint',
-		 \ ]
+			\ 'coc-tsserver',
+			\ 'coc-prettier',
+			\ 'coc-pairs',
+			\ 'coc-json',
+			\ 'coc-docker',
+			\ 'coc-eslint',
+			\ ]
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -106,11 +106,11 @@ nmap <F2> <Plug>(coc-rename)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
 endfunction
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
