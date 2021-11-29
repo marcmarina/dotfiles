@@ -53,6 +53,10 @@ map <silent> <C-s> :w<CR>
 noremap <silent> \\ :noh<return>
 
 
+" Custom Commands
+command! CopyFilename :let @+ = expand("%")
+
+
 " NERDCommenter
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
