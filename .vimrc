@@ -28,7 +28,7 @@ call plug#end()
 
 " Appearance
 colorscheme gruvbox
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'wombat'
 set number
 
 " Editor behaviour
