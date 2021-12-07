@@ -43,7 +43,6 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Clipboard
-vmap <C-c> "+y
 set clipboard=unnamedplus
 
 " CTRL-S to save
