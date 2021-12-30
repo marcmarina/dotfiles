@@ -16,7 +16,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Coding
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'shime/vim-livedown'
