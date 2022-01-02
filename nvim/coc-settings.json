@@ -6,5 +6,15 @@
 		"javascriptreact",
 		"json"
 	],
-	"javascript.validate.enable": false
+	"javascript.validate.enable": false,
+	"eslint.probe": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"vue",
+		"markdown",
+		"graphql"
+	]
 }

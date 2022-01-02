@@ -22,6 +22,7 @@ Plug 'shime/vim-livedown'
 Plug 'chrisbra/csv.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'styled-components/vim-styled-components'
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
