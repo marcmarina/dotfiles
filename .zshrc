@@ -23,3 +23,19 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Functions
+
+# Get all commit authors with the given names
+function gitauthors {
+	names=""
+	for var in "$@"
+	do
+		if [ "$var" = "$1" ]; then
+			names="$var"
+		else
+			names="$names|$var"
+		fi
+	done
+	git shortlog -sne | rg "$names"
+}
