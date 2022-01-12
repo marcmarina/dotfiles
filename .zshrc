@@ -14,6 +14,7 @@ ZSH_THEME="agnoster"
 
 plugins=(
 	asdf
+	dotenv
 	fzf
 	git
 	z
