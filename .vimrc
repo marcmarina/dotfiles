@@ -26,6 +26,9 @@ Plug 'jparise/vim-graphql'
 call plug#end()
 
 
+" Leader key
+let g:mapleader=","
+
 " Appearance
 colorscheme gruvbox
 let g:airline_theme = 'wombat'
