@@ -70,6 +70,7 @@ let g:NERDDefaultAlign = 'left'
 " FZF Config
 nnoremap <silent> <C-p> :Files!<CR>
 nnoremap <silent> <C-g> :GFiles!<CR>
+nnoremap <silent> <Leader>g :GFiles!?<CR>
 nnoremap <silent> <C-b> :Buffers!<CR>
 nnoremap <C-f> :Rg!<CR>
 
@@ -159,3 +160,7 @@ let g:prettier#config#use_tabs = 'false'
 
 " CSV
 let g:csv_no_conceal=1
+
+
+" Fugitive
+command! -nargs=0 VG :vert Git
