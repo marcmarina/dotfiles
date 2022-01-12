@@ -6,7 +6,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'preservim/nerdtree'
 
 " Appearance
 Plug 'morhetz/gruvbox'
@@ -70,14 +69,6 @@ nnoremap <silent> <C-p> :Files!<CR>
 nnoremap <silent> <C-g> :GFiles!<CR>
 nnoremap <silent> <C-b> :Buffers!<CR>
 nnoremap <C-f> :Rg!<CR>
-
-
-" NERDTree Config
-let NERDTreeShowHidden = 1
-let g:NERDTreeQuitOnOpen = 1
-
-" Exit Vim if NERDTree is the only window left.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 " Coc config
