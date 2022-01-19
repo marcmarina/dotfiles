@@ -1,13 +1,24 @@
-# Aliases
+#---------#
+# Aliases #
+#---------#
+
 alias src="exec $SHELL"
 alias zshconf="nvim ~/.zshrc"
 
-# Variables
+
+#-----------#
+# Variables #
+#-----------#
+
 export PATH=$PATH:/home/$USER/Scripts
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs"
 export EDITOR=nvim
 
-# Oh My Zsh
+
+#-----------#
+# Oh My Zsh #
+#-----------#
+
 export ZSH="/home/$USER/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
@@ -24,7 +35,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Functions
+
+#-----------#
+# Functions #
+#-----------#
 
 # Get all commit authors with the given names
 function gitauthors {
