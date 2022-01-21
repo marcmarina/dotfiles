@@ -148,15 +148,6 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline#extensions#tabline#enabled = 1
 
 
-" Prettier
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#config#config_precedence = 'file-override'
-let g:prettier#config#print_width = 80
-let g:prettier#config#tab_width = 2
-let g:prettier#config#use_tabs = 'false'
-
-
 " CSV
 let g:csv_no_conceal=1
 
