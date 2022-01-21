@@ -17,7 +17,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'shime/vim-livedown'
 Plug 'chrisbra/csv.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'styled-components/vim-styled-components'
