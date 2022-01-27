@@ -3,14 +3,15 @@ call plug#begin('~/.vim/plugged')
 " Workspace
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Appearance
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Coding
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -66,12 +67,23 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
 
-" FZF Config
-nnoremap <silent> <C-p> :Files!<CR>
-nnoremap <silent> <C-g> :GFiles!<CR>
-nnoremap <silent> <Leader>g :GFiles!?<CR>
-nnoremap <silent> <C-b> :Buffers!<CR>
-nnoremap <silent> <C-f> :Rg!<CR>
+" Telescope
+nnoremap <silent> <C-t> :Telescope<CR>
+nnoremap <silent> <C-g> :Telescope git_files<CR>
+nnoremap <silent> <C-p> :Telescope find_files<CR>
+nnoremap <silent> <C-f> :Telescope live_grep<CR>
+nnoremap <silent> <C-b> :Telescope buffers<CR>
+nnoremap <silent> <leader>g :Telescope git_status<CR>
+
+lua << EOF
+require("telescope").setup {
+	pickers = {
+		find_files = {
+			find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs" }
+		}
+	}
+}
+EOF
 
 
 " Coc config
