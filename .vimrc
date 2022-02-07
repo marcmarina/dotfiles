@@ -58,6 +58,7 @@ noremap <silent> \\ :noh<return>
 " Custom Commands
 command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
 command! -nargs=1 NewFile :e %:p:h/<args> " Create new file with given name in the current directory
+command! Source :so ~/.vimrc " Source configuration file
 
 
 " NERDCommenter
@@ -79,7 +80,22 @@ lua << EOF
 require("telescope").setup {
 	pickers = {
 		find_files = {
-			find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs" }
+			find_command = {
+				"rg",
+				"--files",
+				"--hidden",
+				"--no-ignore-vcs"
+			}
+		}
+	},
+	defaults = {
+		vimgrep_arguments = {
+			"rg",
+      "--no-heading",
+      "--line-number",
+      "--column",
+			"--hidden",
+			"--no-ignore-vcs"
 		}
 	}
 }
