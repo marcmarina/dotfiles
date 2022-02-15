@@ -50,5 +50,5 @@ function gitauthors {
 			names="$names|$var"
 		fi
 	done
-	git shortlog -sne | rg "$names"
+	git log --pretty="Co-authored-by: %an <%ae>" | sort | uniq | grep -E "$names"
 }
