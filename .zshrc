@@ -10,7 +10,7 @@ alias zshconf="nvim ~/.zshrc"
 # Variables #
 #-----------#
 
-export PATH=$PATH:/home/$USER/Scripts
+export PATH=$PATH:$HOME/.local/bin:/home/$USER/Scripts
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs"
 export EDITOR=nvim
 
