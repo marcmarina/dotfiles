@@ -28,6 +28,7 @@ plugins=(
 	asdf
 	fzf
 	git
+	tmux
 	z
 	zsh-syntax-highlighting
 	zsh-autosuggestions
