@@ -52,5 +52,5 @@ function gitauthors {
 			names="$names|$var"
 		fi
 	done
-	git log --pretty="Co-authored-by: %an <%ae>" | sort | uniq | grep -E "$names"
+	git log --pretty="Co-authored-by: %an <%ae>" | sort | uniq | grep -iE "$names"
 }
