@@ -12,6 +12,7 @@ rm ~/.zshrc
 # Symlinks
 ln -s $PWD/.zshrc /home/$USER/.zshrc
 ln -s $PWD/.vimrc /home/$USER/.vimrc
+ln -s $PWD/.tmux.conf /home/$USER/.tmux.conf
 ln -s $PWD/nvim /home/$USER/.config/nvim
 ln -s $PWD/.tool-versions /home/$USER/.tool-versions
 
