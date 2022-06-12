@@ -54,3 +54,15 @@ function gitauthors {
 	done
 	git log --pretty="Co-authored-by: %an <%ae>" | sort | uniq | grep -iE "$names"
 }
+
+# Confirmation prompt
+function confirm {
+	echo "Are you sure? [y/N]"
+	read 'confirm?> '
+	if [[ $confirm == "y" || $confirm == "Y" || $confirm == "yes" || $confirm == "Yes" ]]
+	then
+		true
+	else
+		false
+	fi
+}
