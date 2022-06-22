@@ -94,7 +94,6 @@ require("telescope").setup {
       "--no-heading",
       "--line-number",
       "--column",
-			"--hidden",
 			"--no-ignore-vcs"
 		}
 	}
