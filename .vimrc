@@ -54,6 +54,13 @@ map <silent> <C-s> :w<CR>
 " Clear highlights
 noremap <silent> \\ :noh<return>
 
+" Auto toggle relative/normal line numbers
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
 
 " Custom Commands
 command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
