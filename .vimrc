@@ -38,6 +38,7 @@ set number
 set mouse=a
 set tabstop=2
 set shiftwidth=2
+set scrolloff=2
 
 " Shortcutting split navigation
 map <C-h> <C-w>h
