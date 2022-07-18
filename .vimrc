@@ -3,15 +3,14 @@ call plug#begin('~/.vim/plugged')
 " Workspace
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 " Appearance
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kyazdani42/nvim-web-devicons'
 
 " Coding
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -66,7 +65,6 @@ augroup END
 " Custom Commands
 command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
 command! -nargs=1 NewFile :e %:p:h/<args> " Create new file with given name in the current directory
-command! Source :so ~/.vimrc " Source configuration file
 
 
 " NERDCommenter
@@ -76,37 +74,12 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
 
-" Telescope
-nnoremap <silent> <C-t> :Telescope<CR>
-nnoremap <silent> <C-g> :Telescope git_files<CR>
-nnoremap <silent> <C-p> :Telescope find_files<CR>
-nnoremap <silent> <C-f> :Telescope live_grep<CR>
-nnoremap <silent> <C-b> :Telescope buffers<CR>
-nnoremap <silent> <leader>g :Telescope git_status<CR>
-
-lua << EOF
-require("telescope").setup {
-	pickers = {
-		find_files = {
-			find_command = {
-				"rg",
-				"--files",
-				"--hidden",
-				"--no-ignore-vcs"
-			}
-		}
-	},
-	defaults = {
-		vimgrep_arguments = {
-			"rg",
-      "--no-heading",
-      "--line-number",
-      "--column",
-			"--no-ignore-vcs"
-		}
-	}
-}
-EOF
+" FZF Config
+nnoremap <silent> <C-p> :Files!<CR>
+nnoremap <silent> <C-g> :GFiles!<CR>
+nnoremap <silent> <Leader>g :GFiles!?<CR>
+nnoremap <silent> <C-b> :Buffers!<CR>
+nnoremap <silent> <C-f> :Rg!<CR>
 
 
 " Coc config
