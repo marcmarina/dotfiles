@@ -65,6 +65,7 @@ augroup END
 " Custom Commands
 command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
 command! -nargs=1 NewFile :e %:p:h/<args> " Create new file with given name in the current directory
+command! Source :so ~/.vimrc " Source configuration file
 
 
 " NERDCommenter
