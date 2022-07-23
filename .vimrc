@@ -81,6 +81,7 @@ nnoremap <silent> <C-g> :GFiles!<CR>
 nnoremap <silent> <Leader>g :GFiles!?<CR>
 nnoremap <silent> <C-b> :Buffers!<CR>
 nnoremap <silent> <C-f> :Rg!<CR>
+nnoremap <silent> <Leader>p :Commands!<CR>
 
 
 " Coc config
@@ -101,7 +102,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <Leader>p :CocCommand<CR>
+nmap <silent> <Leader>l :CocList<CR>
+		
 
 " Renaming
 nmap <F2> <Plug>(coc-rename)
