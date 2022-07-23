@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " Workspace
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
