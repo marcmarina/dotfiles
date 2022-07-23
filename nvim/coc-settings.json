@@ -7,6 +7,7 @@
 		"json"
 	],
 	"javascript.validate.enable": false,
+	"list.source.symbols.excludes": ["**/node_modules/**/*"],
 	"eslint.probe": [
 		"javascript",
 		"javascriptreact",
