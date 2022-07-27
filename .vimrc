@@ -32,6 +32,7 @@ let g:mapleader=","
 
 " Appearance
 colorscheme gruvbox
+set background=dark
 let g:airline_theme = 'wombat'
 set number
 
