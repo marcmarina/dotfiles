@@ -28,6 +28,7 @@ plugins=(
 	asdf
 	fzf
 	git
+	sudo
 	tmux
 	z
 	zsh-syntax-highlighting
