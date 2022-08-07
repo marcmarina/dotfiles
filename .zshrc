@@ -4,7 +4,7 @@
 
 alias src="exec $SHELL"
 alias zshconf="nvim ~/.zshrc"
-alias vimconf="nvim ~/.vimrc"
+alias vimconf="nvim ~/.config/nvim/init.vim"
 
 
 #-----------#
