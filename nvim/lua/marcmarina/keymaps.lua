@@ -17,6 +17,11 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Explore
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
+-- Telescope
+keymap("n", "<leader>g", ":Telescope git_files<CR>", opts)
+keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>t", ":Telescope<CR>", opts)
+
 -- Resizing
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
