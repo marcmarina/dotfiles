@@ -5,6 +5,7 @@ require "config.colorscheme"
 require "config.cmp"
 require "config.lsp"
 require "config.treesitter"
+require "config.telescope"
 require "config.alpha"
 
 -- Vimscript

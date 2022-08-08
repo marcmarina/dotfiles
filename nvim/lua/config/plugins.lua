@@ -55,6 +55,7 @@ return packer.startup(function(use)
 
 	-- Workspace
 	use "nvim-telescope/telescope.nvim"
+	use 'nvim-telescope/telescope-media-files.nvim'
 
 	-- Completion
 	use "hrsh7th/nvim-cmp"
