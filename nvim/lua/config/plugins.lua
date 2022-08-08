@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use "tpope/vim-fugitive"
 	use "tpope/vim-rhubarb"
 
+	-- Workspace
 	use "nvim-telescope/telescope.nvim"
 
 	-- Completion
@@ -62,15 +63,17 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-nvim-lua"
 
-	use {
-		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
-	}
-
+	--- LSP
 	use "neovim/nvim-lspconfig"
 	use "williamboman/nvim-lsp-installer"
 	use "RishabhRD/popfix"
 	use "RishabhRD/nvim-lsputils"
+
+	use {
+		"windwp/nvim-autopairs",
+		config = function() require("nvim-autopairs").setup {} end
+	}
+	use "preservim/nerdcommenter"
 
 	-- Treesitter
   use {
@@ -86,4 +89,5 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
+
 

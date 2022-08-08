@@ -42,3 +42,8 @@ keymap("n", "<C-s>", ":w<CR>", opts)
 
 -- Paste without yank
 keymap("v", "p", '"_dP', opts)
+
+
+-- NERDCommenter
+keymap("n", "++", "<Plug>NERDCommenterToggle", opts)
+keymap("v", "++", "<Plug>NERDCommenterToggle", opts)
