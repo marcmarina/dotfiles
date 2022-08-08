@@ -6,6 +6,7 @@ local options = {
   tabstop = 2,
 	fileencoding = "utf-8",
 	showmode = false,
+	ignorecase = true,
 }
 
 for k, v in pairs(options) do
