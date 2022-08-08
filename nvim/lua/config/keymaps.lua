@@ -40,9 +40,5 @@ keymap("v", ">", ">gv", opts)
 -- Save file
 keymap("n", "<C-s>", ":w<CR>", opts)
 
--- Moving text
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-
 -- Paste without yank
 keymap("v", "p", '"_dP', opts)
