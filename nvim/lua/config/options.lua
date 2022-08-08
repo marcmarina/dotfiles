@@ -7,17 +7,10 @@ local options = {
 	fileencoding = "utf-8",
 	showmode = false,
 	ignorecase = true,
+	termguicolors = true,
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
--- NERDCommenter
-vim.cmd [[
-
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-
-]]
 

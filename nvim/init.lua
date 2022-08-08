@@ -7,3 +7,12 @@ require "config.lsp"
 require "config.treesitter"
 require "config.alpha"
 
+-- Vimscript
+vim.cmd [[
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+
+]]
+

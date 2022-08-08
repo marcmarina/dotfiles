@@ -47,6 +47,7 @@ return packer.startup(function(use)
 
 	-- Appearance
 	use "Mofiqul/vscode.nvim" -- VSCode colorscheme
+	use "lunarvim/colorschemes"
 
 	-- Git
 	use "tpope/vim-fugitive"
@@ -78,9 +79,7 @@ return packer.startup(function(use)
 	use "goolord/alpha-nvim"
 
 	-- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-  }
+  use "nvim-treesitter/nvim-treesitter"
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
 
