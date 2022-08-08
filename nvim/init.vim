@@ -38,6 +38,7 @@ colorscheme gruvbox
 set background=dark
 let g:airline_theme = 'wombat'
 set number
+set ignorecase
 
 " Editor behaviour
 set mouse=a
