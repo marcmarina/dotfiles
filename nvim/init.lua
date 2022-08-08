@@ -1,6 +1,6 @@
-require "marcmarina.options"
-require "marcmarina.keymaps"
-require "marcmarina.plugins"
-require "marcmarina.colorscheme"
-require "marcmarina.cmp"
+require "config.options"
+require "config.keymaps"
+require "config.plugins"
+require "config.colorscheme"
+require "config.cmp"
 
