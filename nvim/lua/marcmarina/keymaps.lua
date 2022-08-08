@@ -20,6 +20,7 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 -- Telescope
 keymap("n", "<leader>g", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>p", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>t", ":Telescope<CR>", opts)
 
 -- Resizing

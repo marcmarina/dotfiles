@@ -47,11 +47,17 @@ return packer.startup(function(use)
 
 	-- Appearance
   use "morhetz/gruvbox" -- Gruvbox colorscheme
-	
+
 	-- Git
 	use "tpope/vim-fugitive"
 
 	use "nvim-telescope/telescope.nvim"
+
+	-- Completion
+	use "hrsh7th/nvim-cmp"
+	use "hrsh7th/cmp-buffer"
+	use "hrsh7th/cmp-path"
+	use "hrsh7th/cmp-cmdline"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -59,3 +65,4 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
+
