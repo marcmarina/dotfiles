@@ -75,6 +75,8 @@ return packer.startup(function(use)
 	}
 	use "preservim/nerdcommenter"
 
+	use "goolord/alpha-nvim"
+
 	-- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
