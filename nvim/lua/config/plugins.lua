@@ -50,6 +50,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use "tpope/vim-fugitive"
+	use "tpope/vim-rhubarb"
 
 	use "nvim-telescope/telescope.nvim"
 

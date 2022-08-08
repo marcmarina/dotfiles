@@ -3,7 +3,6 @@ configs.setup {
   ensure_installed = {
 		"typescript",
 		"javascript",
-		"json",
 		"graphql",
 		"lua",
 	},
