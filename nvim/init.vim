@@ -51,7 +51,17 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Clipboard
+" Buffer navigation
+nmap <silent> <S-h> :bnext<CR>
+nmap <silent> <S-l> :bprevious<CR>
+
+" Indenting
+vmap <silent> < <gv
+vmap <silent> > >gv
+
+" Paste without yank
+vmap <silent> p "_dP
+
 set clipboard=unnamedplus
 
 " CTRL-S to save
