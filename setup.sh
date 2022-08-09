@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# Absolute path to script folder
+SCRIPTPATH=$(dirname $(readlink -f "$0"))
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # File copying
@@ -10,10 +14,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 rm ~/.zshrc
 
 # Symlinks
-ln -s $PWD/.zshrc /home/$USER/.zshrc
-ln -s $PWD/.tmux.conf /home/$USER/.tmux.conf
-ln -s $PWD/nvim /home/$USER/.config/nvim
-ln -s $PWD/.tool-versions /home/$USER/.tool-versions
+ln -s $SCRIPTPATH/.zshrc /home/$USER/.zshrc
+ln -s $SCRIPTPATH/.tmux.conf /home/$USER/.tmux.conf
+ln -s $SCRIPTPATH/nvim /home/$USER/.config/nvim
+ln -s $SCRIPTPATH/.tool-versions /home/$USER/.tool-versions
 
 # Plugins/Packages
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
