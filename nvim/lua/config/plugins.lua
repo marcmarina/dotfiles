@@ -48,7 +48,8 @@ return packer.startup(function(use)
 	-- Appearance
 	use "Mofiqul/vscode.nvim" -- VSCode colorscheme
 	use "lunarvim/colorschemes"
-
+	use "vim-airline/vim-airline"
+	use "vim-airline/vim-airline-themes"
 	-- Git
 	use "tpope/vim-fugitive"
 	use "tpope/vim-rhubarb"
@@ -78,6 +79,8 @@ return packer.startup(function(use)
 	use "preservim/nerdcommenter"
 
 	use "goolord/alpha-nvim"
+
+	use "editorconfig/editorconfig-vim"
 
 	-- Treesitter
   use "nvim-treesitter/nvim-treesitter"

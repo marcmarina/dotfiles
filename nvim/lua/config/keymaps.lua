@@ -24,10 +24,10 @@ keymap("n", "<leader>p", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>t", ":Telescope<CR>", opts)
 
 -- Resizing
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Buffer navigation
 keymap("n", "<S-h>", ":bnext<CR>", opts)
