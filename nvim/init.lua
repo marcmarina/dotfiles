@@ -7,6 +7,7 @@ require "config.lsp"
 require "config.treesitter"
 require "config.telescope"
 require "config.alpha"
+require "config.gitsigns"
 
 -- Vimscript
 vim.cmd [[
