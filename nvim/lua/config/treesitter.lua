@@ -16,5 +16,6 @@ configs.setup {
 
   },
   indent = { enable = true, disable = { "yaml" } },
+	rainbow = { enable = true },
 }
 
