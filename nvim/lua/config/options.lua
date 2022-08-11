@@ -8,6 +8,7 @@ local options = {
 	ignorecase = true,
 	termguicolors = true,
 	showmode = false,
+	scrolloff = 2,
 }
 
 for k, v in pairs(options) do
