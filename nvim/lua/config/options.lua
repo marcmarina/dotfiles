@@ -7,6 +7,7 @@ local options = {
 	fileencoding = "utf-8",
 	ignorecase = true,
 	termguicolors = true,
+	showmode = false,
 }
 
 for k, v in pairs(options) do
