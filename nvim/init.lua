@@ -9,6 +9,7 @@ require "config.gitsigns"
 require "config.coc"
 require "config.project"
 require "config.tree"
+require "config.bufferline"
 
 -- NERDCommenter
 vim.g.NERDSpaceDelims = 1
@@ -55,8 +56,6 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
-
-let g:airline#extensions#tabline#enabled = 1
 
 
 " Auto toggle relative/normal line numbers
