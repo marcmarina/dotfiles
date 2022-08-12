@@ -1,13 +1,13 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
   ensure_installed = {
-		"typescript",
-		"javascript",
-		"jsdoc",
-		"graphql",
-		"lua",
-	},
-  sync_install = false, 
+    "typescript",
+    "javascript",
+    "jsdoc",
+    "graphql",
+    "lua",
+  },
+  sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
@@ -15,6 +15,6 @@ configs.setup {
     additional_vim_regex_highlighting = true,
   },
   indent = { enable = true, disable = { "yaml" } },
-	rainbow = { enable = false },
+  rainbow = { enable = false },
 }
 

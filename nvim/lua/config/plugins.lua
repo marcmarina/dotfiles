@@ -45,46 +45,46 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
-	-- Appearance
-	use "Mofiqul/vscode.nvim" -- VSCode colorscheme
-	use "lunarvim/colorschemes"
-	use "vim-airline/vim-airline"
-	use "vim-airline/vim-airline-themes"
-	use "kyazdani42/nvim-web-devicons"
-	use "kyazdani42/nvim-tree.lua"
+  -- Appearance
+  use "Mofiqul/vscode.nvim" -- VSCode colorscheme
+  use "lunarvim/colorschemes"
+  use "vim-airline/vim-airline"
+  use "vim-airline/vim-airline-themes"
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
 
-	-- Git
-	use "tpope/vim-fugitive"
-	use "tpope/vim-rhubarb"
-	use {
-		'lewis6991/gitsigns.nvim',
-		tag = "release",
-	}
+  -- Git
+  use "tpope/vim-fugitive"
+  use "tpope/vim-rhubarb"
+  use {
+    'lewis6991/gitsigns.nvim',
+    tag = "release",
+  }
 
-	-- Workspace
-	use "nvim-telescope/telescope.nvim"
-	use 'nvim-telescope/telescope-media-files.nvim'
+  -- Workspace
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
 
-	-- Completion
-	use {
-		"neoclide/coc.nvim",
-		branch = "release",
-	}
+  -- Completion
+  use {
+    "neoclide/coc.nvim",
+    branch = "release",
+  }
 
-	use "preservim/nerdcommenter"
+  use "preservim/nerdcommenter"
 
-	use "goolord/alpha-nvim"
+  use "goolord/alpha-nvim"
 
-	use "editorconfig/editorconfig-vim"
+  use "editorconfig/editorconfig-vim"
 
-	-- Treesitter
+  -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
 
-	use "ahmedkhalf/project.nvim"
+  use "ahmedkhalf/project.nvim"
 
-	use "akinsho/bufferline.nvim"
+  use "akinsho/bufferline.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -24,7 +24,7 @@ vim.cmd [[
 
 " airline
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 " unicode symbols

@@ -1,6 +1,6 @@
 [core]
-	editor = nvim
+  editor = nvim
 [pull]
-	rebase = true
+  rebase = true
 [rebase]
-	autostash = true
+  autostash = true

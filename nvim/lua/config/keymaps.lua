@@ -1,9 +1,9 @@
 -- Keymap helper
 local function keymap(mode, key, action)
-	vim.api.nvim_set_keymap(mode, key, action, {
-		noremap = true,
-		silent = true,
-	})
+  vim.api.nvim_set_keymap(mode, key, action, {
+    noremap = true,
+    silent = true,
+  })
 end
 
 -- Remap leader
