@@ -65,23 +65,11 @@ return packer.startup(function(use)
 	use 'nvim-telescope/telescope-media-files.nvim'
 
 	-- Completion
-	use "hrsh7th/nvim-cmp"
-	use "hrsh7th/cmp-buffer"
-	use "hrsh7th/cmp-path"
-	use "hrsh7th/cmp-cmdline"
-	use "hrsh7th/cmp-nvim-lsp"
-	use "hrsh7th/cmp-nvim-lua"
-
-	--- LSP
-	use "neovim/nvim-lspconfig"
-	use "williamboman/nvim-lsp-installer"
-	use "RishabhRD/popfix"
-	use "RishabhRD/nvim-lsputils"
-
 	use {
-		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
+		"neoclide/coc.nvim",
+		branch = "release",
 	}
+
 	use "preservim/nerdcommenter"
 
 	use "goolord/alpha-nvim"

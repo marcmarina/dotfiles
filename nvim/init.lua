@@ -2,24 +2,24 @@ require "config.options"
 require "config.keymaps"
 require "config.plugins"
 require "config.colorscheme"
-require "config.cmp"
-require "config.lsp"
 require "config.treesitter"
 require "config.telescope"
 require "config.alpha"
 require "config.gitsigns"
+require "config.coc"
+
+-- NERDCommenter
+vim.g.NERDSpaceDelims = 1
+vim.g.NERDDefaultAlign = 'left'
+
+-- Airline
+vim.g.airline_theme = 'wombat'
 
 -- Vimscript
+--
 vim.cmd [[
 
-" NERDCommenter
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-
-
 " airline
-let g:airline_theme = 'wombat'
-
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
