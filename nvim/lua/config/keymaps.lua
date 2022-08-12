@@ -48,7 +48,7 @@ keymap("v", "p", '"_dP')
 
 -- NERDCommenter
 keymap("n", "++", "<Plug>NERDCommenterToggle")
-keymap("v", "++", "<Plug>NERDCommenterToggle")
+keymap("v", "++", "<Plug>NERDCommenterToggle gv")
 
 -- Alpha
 keymap("n", "<leader>m", ":Alpha <CR>")
