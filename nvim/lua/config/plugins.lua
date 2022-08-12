@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use "vim-airline/vim-airline"
 	use "vim-airline/vim-airline-themes"
 	use "kyazdani42/nvim-web-devicons"
+	use "kyazdani42/nvim-tree.lua"
 
 	-- Git
 	use "tpope/vim-fugitive"
@@ -80,6 +81,8 @@ return packer.startup(function(use)
   use "nvim-treesitter/nvim-treesitter"
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
+
+	use "ahmedkhalf/project.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

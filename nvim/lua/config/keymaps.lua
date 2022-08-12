@@ -18,7 +18,7 @@ keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
 -- Explore
-keymap("n", "<leader>e", ":Lex 30<cr>")
+keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>")
 
 -- Telescope
 keymap("n", "<leader>g", ":Telescope git_files<CR>")

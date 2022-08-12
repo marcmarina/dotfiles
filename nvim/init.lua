@@ -7,6 +7,8 @@ require "config.telescope"
 require "config.alpha"
 require "config.gitsigns"
 require "config.coc"
+require "config.project"
+require "config.tree"
 
 -- NERDCommenter
 vim.g.NERDSpaceDelims = 1
