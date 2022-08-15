@@ -40,5 +40,7 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 ]]
 
