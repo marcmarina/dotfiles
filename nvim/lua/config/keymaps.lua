@@ -33,8 +33,8 @@ keymap("n", "<C-Left>", ":vertical resize +2<CR>")
 keymap("n", "<C-Right>", ":vertical resize -2<CR>")
 
 -- Buffer navigation
-keymap("n", "<S-h>", ":bnext<CR>")
-keymap("n", "<S-l>", ":bprevious<CR>")
+keymap("n", "<S-h>", ":bprevious<CR>")
+keymap("n", "<S-l>", ":bnext<CR>")
 
 -- Indent mode
 keymap("v", "<", "<gv")
