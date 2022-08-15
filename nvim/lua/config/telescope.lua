@@ -14,6 +14,18 @@ telescope.setup {
     selection_caret = " ",
     path_display = { "smart" },
 
+    vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--hidden",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--no-ignore-vcs",
+    },
+
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
