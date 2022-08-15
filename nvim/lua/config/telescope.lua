@@ -14,18 +14,6 @@ telescope.setup {
     selection_caret = " ",
     path_display = { "smart" },
 
-    vimgrep_arguments = {
-        "rg",
-        "--color=never",
-        "--hidden",
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
-        "--column",
-        "--smart-case",
-        "--no-ignore-vcs",
-    },
-
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -91,14 +79,28 @@ telescope.setup {
       },
     },
   },
+
+  vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--hidden",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--no-ignore-vcs",
+  },
+
   pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
+		find_files = {
+			find_command = {
+				"rg",
+				"--files",
+				"--hidden",
+				"--no-ignore-vcs",
+			},
+		},
   },
   extensions = {
     media_files = {
