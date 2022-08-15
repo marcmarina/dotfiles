@@ -17,5 +17,6 @@
     "vue",
     "markdown",
     "graphql"
-  ]
+  ],
+  "suggest.noselect": true
 }
