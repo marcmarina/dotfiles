@@ -3,8 +3,6 @@
 # Absolute path to script folder
 SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # File copying
 mkdir -p ~/.config
 cat .gitconfig >> ~/.gitconfig
