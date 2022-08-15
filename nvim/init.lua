@@ -29,5 +29,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
+command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
+
 ]]
 

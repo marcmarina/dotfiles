@@ -23,8 +23,3 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.cmd [[
-
-command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
-
-]]
