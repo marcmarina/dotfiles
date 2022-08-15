@@ -27,8 +27,8 @@ mapkey("n", "<C-Left>", ":vertical resize +2<CR>")
 mapkey("n", "<C-Right>", ":vertical resize -2<CR>")
 
 -- Buffer navigation
-mapkey("n", "<S-h>", ":bprevious<CR>")
-mapkey("n", "<S-l>", ":bnext<CR>")
+mapkey("n", "<S-TAB>", ":bprevious<CR>")
+mapkey("n", "<TAB>", ":bnext<CR>")
 
 -- Indent mode
 mapkey("v", "<", "<gv")
