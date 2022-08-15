@@ -1,10 +1,4 @@
--- Keymap helper
-local function keymap(mode, key, action)
-  vim.api.nvim_set_keymap(mode, key, action, {
-    noremap = true,
-    silent = true,
-  })
-end
+local keymap = require("helpers.keymaps")
 
 keymap("n", "<leader>.", "<Plug>(coc-codeaction)")
 keymap("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>")
