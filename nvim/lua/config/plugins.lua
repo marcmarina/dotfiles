@@ -47,10 +47,8 @@ return packer.startup(function(use)
 
   -- Appearance
   use "Mofiqul/vscode.nvim"
-
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
-
   use "kyazdani42/nvim-web-devicons"
 
   -- Tree
@@ -67,6 +65,10 @@ return packer.startup(function(use)
   -- Workspace
   use "nvim-telescope/telescope.nvim"
   use 'nvim-telescope/telescope-media-files.nvim'
+  use "goolord/alpha-nvim"
+  use "akinsho/bufferline.nvim"
+  use "ahmedkhalf/project.nvim"
+  use "editorconfig/editorconfig-vim"
 
   -- Completion
   use {
@@ -74,20 +76,14 @@ return packer.startup(function(use)
     branch = "release",
   }
 
-  use "preservim/nerdcommenter"
-
-  use "goolord/alpha-nvim"
-
-  use "editorconfig/editorconfig-vim"
-
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
 
-  use "ahmedkhalf/project.nvim"
-
-  use "akinsho/bufferline.nvim"
+  -- Coding
+  use "mg979/vim-visual-multi"
+  use "preservim/nerdcommenter"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
