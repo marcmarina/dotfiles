@@ -18,7 +18,7 @@ mapkey("n", "<leader>e", ":NvimTreeFindFileToggle<CR>")
 mapkey("n", "<leader>g", ":Telescope git_files<CR>")
 mapkey("n", "<leader>b", ":Telescope buffers<CR>")
 mapkey("n", "<leader>p", ":Telescope find_files<CR>")
-mapkey("n", "<leader>t", ":Telescope<CR>")
+mapkey("n", "<C-p>", ":Telescope<CR>")
 
 -- Resizing
 mapkey("n", "<C-Up>", ":resize +2<CR>")
