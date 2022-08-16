@@ -21,10 +21,10 @@ mapkey("n", "<leader>p", ":Telescope find_files<CR>")
 mapkey("n", "<C-p>", ":Telescope<CR>")
 
 -- Resizing
-mapkey("n", "<C-Up>", ":resize +2<CR>")
-mapkey("n", "<C-Down>", ":resize -2<CR>")
-mapkey("n", "<C-Left>", ":vertical resize +2<CR>")
-mapkey("n", "<C-Right>", ":vertical resize -2<CR>")
+mapkey("n", "<C-Up>", ":resize -2<CR>")
+mapkey("n", "<C-Down>", ":resize +2<CR>")
+mapkey("n", "<C-Left>", ":vertical resize -2<CR>")
+mapkey("n", "<C-Right>", ":vertical resize +2<CR>")
 
 -- Buffer navigation
 mapkey("n", "<S-TAB>", ":bprevious<CR>")
