@@ -31,5 +31,7 @@ augroup END
 
 command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
 
+cabbrev Git vert Git
+
 ]]
 
