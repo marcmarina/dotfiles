@@ -84,6 +84,10 @@ return packer.startup(function(use)
   -- Coding
   use "mg979/vim-visual-multi"
   use "preservim/nerdcommenter"
+  use {
+    "kkoomen/vim-doge",
+    run = ":call doge#install()"
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
