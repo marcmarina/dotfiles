@@ -18,5 +18,6 @@
     "markdown",
     "graphql"
   ],
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  "sh.enable": true
 }
