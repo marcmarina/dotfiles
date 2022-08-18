@@ -20,7 +20,6 @@ vim.g.NERDDefaultAlign = 'left'
 vim.g.airline_theme = 'bubblegum'
 
 -- Vimscript
---
 vim.cmd [[
 
 " Auto toggle relative/normal line numbers
