@@ -10,6 +10,7 @@ require "config.coc"
 require "config.project"
 require "config.tree"
 require "config.bufferline"
+require "config.tagalong"
 
 -- NERDCommenter
 vim.g.NERDSpaceDelims = 1
