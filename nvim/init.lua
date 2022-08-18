@@ -29,9 +29,13 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
+" Custom commands
 command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
 
 cabbrev Git vert Git
+
+" Filetypes
+au BufEnter .zshrc setf sh
 
 ]]
 
