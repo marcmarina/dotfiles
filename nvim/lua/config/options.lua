@@ -8,6 +8,7 @@ local options = {
   smartcase = true,
   termguicolors = true,
   scrolloff = 4,
+  signcolumn = "yes",
   hlsearch = true,                         -- highlight all matches on previous search pattern
   showtabline = 2,                         -- always show tabs
   smartindent = true,                      -- make indenting smarter again
