@@ -66,7 +66,10 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use 'nvim-telescope/telescope-media-files.nvim'
   use "goolord/alpha-nvim"
-  use "akinsho/bufferline.nvim"
+  use {
+    "akinsho/bufferline.nvim",
+    tag = "v2.6.0",
+  }
   use "ahmedkhalf/project.nvim"
   use "editorconfig/editorconfig-vim"
 
