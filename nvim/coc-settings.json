@@ -19,5 +19,6 @@
     "graphql"
   ],
   "suggest.noselect": true,
+  "suggest.autoTrigger": "trigger",
   "sh.enable": true
 }
