@@ -16,6 +16,7 @@ local options = {
   splitright = true,                       -- force all vertical splits to go to the right of current window
   updatetime = 300,                        -- faster completion (4000ms default)
   cursorline = true,                       -- highlight the current line
+  undofile = true,
 }
 
 for k, v in pairs(options) do
