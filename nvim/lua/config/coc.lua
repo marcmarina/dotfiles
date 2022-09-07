@@ -36,5 +36,15 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Coc config
+let g:coc_global_extensions = [
+			\ 'coc-tsserver',
+			\ 'coc-prettier',
+			\ 'coc-pairs',
+			\ 'coc-json',
+			\ 'coc-docker',
+			\ 'coc-eslint',
+			\ ]
+
 ]]
 
