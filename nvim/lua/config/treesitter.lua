@@ -6,6 +6,7 @@ configs.setup {
     "jsdoc",
     "graphql",
     "lua",
+    "bash",
   },
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
