@@ -5,6 +5,7 @@ local options = {
   shiftwidth = 2,
   tabstop = 2,
   fileencoding = "utf-8",
+  ignorecase = true,
   smartcase = true,
   termguicolors = true,
   scrolloff = 4,
