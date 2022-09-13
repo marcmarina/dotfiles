@@ -44,6 +44,7 @@ let g:coc_global_extensions = [
 			\ 'coc-json',
 			\ 'coc-docker',
 			\ 'coc-eslint',
+			\ 'coc-lua',
 			\ ]
 
 ]]
