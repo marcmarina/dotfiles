@@ -50,6 +50,7 @@ return packer.startup(function(use)
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
   use "kyazdani42/nvim-web-devicons"
+  use "morhetz/gruvbox"
 
   -- Tree
   use "kyazdani42/nvim-tree.lua"
