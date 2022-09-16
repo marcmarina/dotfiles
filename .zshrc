@@ -29,6 +29,7 @@ plugins=(
   git
   sudo
   tmux
+  ubuntu
   z
   zsh-syntax-highlighting
   zsh-autosuggestions
