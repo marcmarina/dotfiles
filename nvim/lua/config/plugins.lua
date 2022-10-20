@@ -46,7 +46,10 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Appearance
-  use "Mofiqul/vscode.nvim"
+  use { 
+    "Mofiqul/vscode.nvim",
+    commit = "c5125820a0915ef50f03fae10423c43dc49c66b1",
+  }
   use "vim-airline/vim-airline"
   use "vim-airline/vim-airline-themes"
   use "kyazdani42/nvim-web-devicons"
