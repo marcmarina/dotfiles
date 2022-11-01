@@ -24,15 +24,15 @@ export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
 plugins=(
-  asdf
-  fzf
-  git
-  sudo
-  tmux
-  ubuntu
-  z
-  zsh-syntax-highlighting
-  zsh-autosuggestions
+	asdf
+	fzf
+	git
+	sudo
+	tmux
+	ubuntu
+	z
+	zsh-syntax-highlighting
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
