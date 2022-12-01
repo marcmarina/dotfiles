@@ -11,8 +11,10 @@ alias zshconf="nvim ~/.zshrc"
 #-----------#
 
 export PATH=$PATH:$HOME/.local/bin:/home/$USER/Scripts
-export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore-vcs"
 export EDITOR=nvim
+
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_CTRL_T_COMMAND="rg --files --hidden --glob '!.git'"
 
 
 #-----------#
