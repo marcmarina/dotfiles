@@ -2,9 +2,10 @@
 # Aliases #
 #---------#
 
+alias fd="fdfind"
+alias lg="lazygit"
 alias src="exec $SHELL"
 alias zshconf="nvim ~/.zshrc"
-alias fd="fdfind"
 
 
 #-----------#
