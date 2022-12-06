@@ -16,6 +16,7 @@ ln -s $SCRIPTPATH/.zshrc /home/$USER/.zshrc
 ln -s $SCRIPTPATH/.tmux.conf /home/$USER/.tmux.conf
 ln -s $SCRIPTPATH/nvim /home/$USER/.config/nvim
 ln -s $SCRIPTPATH/.tool-versions /home/$USER/.tool-versions
+ln -s $SCRIPTPATH/lazygit /home/$USER/.config/lazygit
 
 # Plugins/Packages
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

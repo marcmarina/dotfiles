@@ -8,3 +8,4 @@ rm -rf ~/.fzf
 rm -rf ~/.tool-versions
 rm -rf ~/.tmux.conf
 rm -rf ~/.tmux
+rm -rf ~/.config/lazygit
