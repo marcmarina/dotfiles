@@ -12,11 +12,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 rm ~/.zshrc
 
 # Symlinks
-ln -s $SCRIPTPATH/.zshrc /home/$USER/.zshrc
-ln -s $SCRIPTPATH/.tmux.conf /home/$USER/.tmux.conf
-ln -s $SCRIPTPATH/nvim /home/$USER/.config/nvim
-ln -s $SCRIPTPATH/.tool-versions /home/$USER/.tool-versions
-ln -s $SCRIPTPATH/lazygit /home/$USER/.config/lazygit
+ln -s $SCRIPTPATH/.zshrc $HOME/.zshrc
+ln -s $SCRIPTPATH/.tmux.conf $HOME/.tmux.conf
+ln -s $SCRIPTPATH/nvim $HOME/.config/nvim
+ln -s $SCRIPTPATH/.tool-versions $HOME/.tool-versions
+ln -s $SCRIPTPATH/lazygit $HOME/.config/lazygit
 
 # Plugins/Packages
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
