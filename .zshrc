@@ -2,6 +2,14 @@
 # Aliases #
 #---------#
 
+FD_COMMAND="fd"
+
+if ! command -v fd &> /dev/null
+then
+    FD_COMMAND="fdfind"
+    alias fd="fdfind"
+fi
+
 alias lg="lazygit"
 alias src="exec $SHELL"
 alias zshconf="nvim ~/.zshrc"
@@ -14,9 +22,9 @@ alias zshconf="nvim ~/.zshrc"
 export PATH=$PATH:$HOME/.local/bin:/home/$USER/Scripts
 export EDITOR=nvim
 
-export FZF_DEFAULT_COMMAND="fd --type file --hidden --follow --exclude .git"
+export FZF_DEFAULT_COMMAND="$FD_COMMAND --type file --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+export FZF_ALT_C_COMMAND="$FD_COMMAND --type d --hidden --follow --exclude .git"
 
 #-----------#
 # Oh My Zsh #
