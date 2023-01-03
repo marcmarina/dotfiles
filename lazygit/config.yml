@@ -3,7 +3,7 @@ gui:
   scrollHeight: 2 # how many lines you scroll by
   scrollPastBottom: true # enable scrolling past the bottom
   sidePanelWidth: 0.3333 # number from 0 to 1
-  expandFocusedSidePanel: false
+  expandFocusedSidePanel: true
   mainPanelSplitMode: 'flexible' # one of 'horizontal' | 'flexible' | 'vertical'
   language: 'auto' # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl' | 'ja' | 'ko'
   timeFormat: '02 Jan 06 15:04 MST' # https://pkg.go.dev/time#Time.Format
@@ -34,10 +34,10 @@ gui:
   skipStashWarning: false
   showFileTree: true # for rendering changes files in a tree format
   showListFooter: true # for seeing the '5 of 20' message in list panels
-  showRandomTip: true
+  showRandomTip: false
   showBottomLine: true # for hiding the bottom information line (unless it has important information to tell you)
-  showCommandLog: true
-  showIcons: false
+  showCommandLog: false
+  showIcons: true
   commandLogSize: 15
   splitDiff: 'auto' # one of 'auto' | 'always'
 git:
