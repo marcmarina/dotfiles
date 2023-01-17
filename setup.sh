@@ -5,7 +5,7 @@ SCRIPTPATH=$(dirname $(readlink -f "$0"))
 
 # File copying
 mkdir -p ~/.config
-cat .gitconfig >> ~/.gitconfig
+cp .gitconfig-base ~/.gitconfig
 
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
