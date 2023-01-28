@@ -22,3 +22,6 @@ ln -s $SCRIPTPATH/.tmux.conf $HOME/.tmux.conf
 
 # Neovim
 ln -s $SCRIPTPATH/nvim $HOME/.config/nvim
+
+# Lazygit
+ln -s $SCRIPTPATH/lazygit $HOME/.config/lazygit

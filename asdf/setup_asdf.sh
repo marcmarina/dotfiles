@@ -11,6 +11,4 @@ asdf plugin add lazygit
 asdf plugin add k9s https://github.com/looztra/asdf-k9s
 asdf plugin add lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
 
-ln -s $SCRIPTPATH/lazygit $HOME/.config
-
 asdf install
