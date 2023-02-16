@@ -25,3 +25,7 @@ ln -s $SCRIPTPATH/nvim $HOME/.config/nvim
 
 # Lazygit
 ln -s $SCRIPTPATH/lazygit $HOME/.config/lazygit
+
+# asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+
