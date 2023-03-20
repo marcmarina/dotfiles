@@ -38,9 +38,11 @@ plugins=(
 	asdf
 	fzf
 	git
+	npm
 	sudo
 	tmux
 	ubuntu
+	yarn
 	z
 	zsh-syntax-highlighting
 	zsh-autosuggestions
