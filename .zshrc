@@ -34,8 +34,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
 
-ZSH_TMUX_AUTOSTART=true
-
 plugins=(
 	asdf
 	fzf
@@ -82,8 +80,3 @@ function confirm {
     false
   fi
 }
-
-# pnpm
-export PNPM_HOME="/Users/marcmarina/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
