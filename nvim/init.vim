@@ -1,3 +1,6 @@
+set runtimepath+=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
 call plug#begin('~/.vim/plugged')
 
 " Workspace
@@ -211,3 +214,4 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
+
