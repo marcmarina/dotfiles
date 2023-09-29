@@ -13,6 +13,7 @@ fi
 alias lg="lazygit"
 alias src="exec $SHELL"
 alias zshconf="nvim ~/.zshrc"
+alias vimconf="nvim ~/.config/nvim/init.vim"
 
 
 #-----------#
@@ -57,26 +58,26 @@ source $ZSH/oh-my-zsh.sh
 
 # Get all commit authors with the given names
 function gitauthors {
-  names=""
-  for var in "$@"
-  do
-    if [ "$var" = "$1" ]; then
-      names="$var"
-    else
-      names="$names|$var"
-    fi
-  done
-  git log --pretty="Co-authored-by: %an <%ae>" | sort | uniq | grep -iE "$names"
+	names=""
+	for var in "$@"
+	do
+		if [ "$var" = "$1" ]; then
+			names="$var"
+		else
+			names="$names|$var"
+		fi
+	done
+	git log --pretty="Co-authored-by: %an <%ae>" | sort | uniq | grep -iE "$names"
 }
 
 # Confirmation prompt
 function confirm {
-  echo "Are you sure? [y/N]"
-  read 'confirm?> '
-  if [[ $confirm == "y" || $confirm == "Y" || $confirm == "yes" || $confirm == "Yes" ]]
-  then
-    true
-  else
-    false
-  fi
+	echo "Are you sure? [y/N]"
+	read 'confirm?> '
+	if [[ $confirm == "y" || $confirm == "Y" || $confirm == "yes" || $confirm == "Yes" ]]
+	then
+		true
+	else
+		false
+	fi
 }
