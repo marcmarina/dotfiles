@@ -1,8 +1,8 @@
 [core]
 	editor = nvim
-[pull]
-	rebase = true
 [push]
   autosetupremote = true
+[pull]
+	rebase = true
 [rebase]
 	autostash = true
