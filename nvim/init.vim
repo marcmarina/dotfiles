@@ -16,6 +16,7 @@ Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Coding
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -82,7 +83,7 @@ augroup END
 " Custom Commands
 command! CopyFilePath :let @+ = expand("%") " Copy relative path to the current buffer
 command! -nargs=1 NewFile :e %:p:h/<args> " Create new file with given name in the current directory
-command! Source :so ~/.vimrc " Source configuration file
+command! Source :so ~/.config/nvim/init.vim " Source configuration file
 
 
 " NERDCommenter
