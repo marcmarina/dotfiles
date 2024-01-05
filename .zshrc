@@ -20,7 +20,7 @@ alias vimconf="nvim ~/.config/nvim/init.vim"
 # Variables #
 #-----------#
 
-export PATH=$PATH:$HOME/.local/bin:/home/$USER/Scripts
+export PATH=$PATH:$HOME/.local/bin:/$HOME/Scripts
 export EDITOR=nvim
 
 export FZF_DEFAULT_COMMAND="$FD_COMMAND --type file --hidden --follow --exclude .git"
