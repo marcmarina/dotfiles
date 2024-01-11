@@ -37,6 +37,8 @@ ZSH_THEME="agnoster"
 
 plugins=(
 	asdf
+	docker
+	docker-compose
 	fzf
 	git
 	npm
