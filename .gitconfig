@@ -1,5 +1,3 @@
-[core]
-	editor = nvim
 [push]
   autosetupremote = true
 [pull]
