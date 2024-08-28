@@ -1,0 +1,19 @@
+#!/bin/bash
+
+INTERVAL=${1:-60}
+
+# Infinite loop to run the commands every minute
+while true; do
+    # Run the Git commands
+		git add . && git commit -m "Backup $(date)" && git pull --rebase && git push
+
+    # Log the exit status of the last command
+    if [ $? -ne 0 ]; then
+				echo -e "\nNo backup needed at $(date)\n"
+    else
+        echo -e "\nBackup complete at $(date)\n"
+    fi
+
+    # Wait for 60 seconds before running again
+    sleep $INTERVAL
+done
