@@ -5,7 +5,7 @@ INTERVAL=${1:-60}
 # Infinite loop to run the commands every minute
 while true; do
     # Run the Git commands
-		git pull --rebase --autostash && git add . && git commit -m "Backup $(date)" && git pull --rebase --autostash && git push
+		git add . && git commit -m "Backup $(date)" && git pull --rebase && git push
 
     # Log the exit status of the last command
     if [ $? -ne 0 ]; then
