@@ -4,3 +4,4 @@ lazygit 0.43.1
 kubectl 1.26.1
 k9s 0.32.5
 lazydocker 0.20.0
+gcloud 494.0.0
