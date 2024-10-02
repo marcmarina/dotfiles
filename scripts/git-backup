@@ -2,6 +2,8 @@
 
 INTERVAL=${1:-60}
 
+git pull --rebase
+
 # Infinite loop to run the commands every minute
 while true; do
     # Run the Git commands
