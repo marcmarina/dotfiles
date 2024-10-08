@@ -4,7 +4,6 @@ let &packpath = &runtimepath
 call plug#begin('~/.vim/plugged')
 
 " Workspace
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'
@@ -204,10 +203,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " CSV
 let g:csv_no_conceal=1
-
-
-" Fugitive
-command! -nargs=0 VG :vert Git
 
 
 " NERDTree
