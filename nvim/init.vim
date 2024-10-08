@@ -53,8 +53,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Buffer navigation
-nmap <silent> <S-h> :bnext<CR>
-nmap <silent> <S-l> :bprevious<CR>
+nmap <silent> <S-l> :bnext<CR>
+nmap <silent> <S-h> :bprevious<CR>
 
 " Indenting
 vmap <silent> < <gv
