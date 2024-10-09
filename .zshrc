@@ -33,7 +33,7 @@ export FZF_ALT_C_COMMAND="$FD_COMMAND --type d --hidden --follow --exclude .git"
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell" # set by `omz`
 
 plugins=(
 	asdf
