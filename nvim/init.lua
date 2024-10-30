@@ -168,6 +168,9 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+vim.keymap.set("n", "<", "<gv")
+vim.keymap.set("n", ">", ">gv")
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -834,6 +837,7 @@ require("lazy").setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     "navarasu/onedark.nvim",
     priority = 1000, -- Make sure to load this before all the other start plugins.
+    style = "warm",
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
@@ -842,8 +846,6 @@ require("lazy").setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi("Comment gui=none")
-
-      style = "warm"
     end,
   },
 
