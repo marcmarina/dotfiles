@@ -713,7 +713,7 @@ require("lazy").setup({
           require("conform").format({ async = true, lsp_format = "fallback" })
         end,
         mode = "",
-        desc = "[F]ormat bufferrrrrrrr",
+        desc = "[F]ormat buffer",
       },
     },
     opts = {
