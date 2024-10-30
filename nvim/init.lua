@@ -281,6 +281,7 @@ require("lazy").setup({
     filters = {
       dotfiles = true,
     },
+    lazy = false,
     config = function()
       require("nvim-tree").setup({})
     end,
