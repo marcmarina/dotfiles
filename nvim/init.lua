@@ -261,10 +261,14 @@ require("lazy").setup({
   },
 
   {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     opts = {
-        -- add any options here
-    }
+      -- add any options here
+    },
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
