@@ -285,7 +285,10 @@ require("lazy").setup({
 
     config = function()
       require("nvim-tree").setup({
-        vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", "[T]oggle Tree"),
+        vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", {
+          desc = "[T]oggle Tree",
+          silent = true,
+        }),
       })
     end,
   },
