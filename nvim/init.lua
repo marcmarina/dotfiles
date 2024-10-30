@@ -286,8 +286,7 @@ require("lazy").setup({
     config = function()
       require("nvim-tree").setup({
         vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", {
-          -- desc = "[T]oggle [T]ree",
-          silent = true,
+          desc = "[T]oggle Tree",
         }),
       })
     end,
@@ -356,7 +355,7 @@ require("lazy").setup({
         { "<leader>r", group = "[R]ename" },
         { "<leader>s", group = "[S]earch" },
         { "<leader>w", group = "[W]orkspace" },
-        { "<leader>t", group = "[T]oggle" },
+        -- { "<leader>t", group = "[T]oggle" },
         { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
       },
     },
