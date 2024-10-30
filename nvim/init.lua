@@ -281,6 +281,9 @@ require("lazy").setup({
     filters = {
       dotfiles = true,
     },
+    config = function()
+      require("nvim-tree").setup({})
+    end,
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
