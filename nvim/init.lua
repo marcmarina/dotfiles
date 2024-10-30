@@ -269,6 +269,18 @@ require("lazy").setup({
 
   {
     "nvim-tree/nvim-tree.lua",
+    sort = {
+      sorter = "case_sensitive",
+    },
+    view = {
+      width = 30,
+    },
+    renderer = {
+      group_empty = true,
+    },
+    filters = {
+      dotfiles = true,
+    },
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
