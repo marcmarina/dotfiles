@@ -282,8 +282,11 @@ require("lazy").setup({
       dotfiles = true,
     },
     lazy = false,
+
     config = function()
-      require("nvim-tree").setup({})
+      require("nvim-tree").setup({
+        vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>"),
+      })
     end,
   },
 
