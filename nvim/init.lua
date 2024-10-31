@@ -267,31 +267,6 @@ require("lazy").setup({
     },
   },
 
-  {
-    "nvim-tree/nvim-tree.lua",
-    sort = {
-      sorter = "case_sensitive",
-    },
-    view = {
-      width = 30,
-    },
-    renderer = {
-      group_empty = true,
-    },
-    filters = {
-      dotfiles = true,
-    },
-    lazy = false,
-
-    config = function()
-      require("nvim-tree").setup({
-        vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", {
-          desc = "[T]oggle Tree",
-        }),
-      })
-    end,
-  },
-
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
