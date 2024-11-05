@@ -162,7 +162,7 @@ vim.opt.scrolloff = 10
 --  See `:help vim.keymap.set()`
 
 -- Paste without yanking
-vim.keymap.set("v", "p", "_dP", {
+vim.keymap.set("v", "p", '"_dP', {
   desc = "[P]aste without yanking",
   silent = true,
 })
