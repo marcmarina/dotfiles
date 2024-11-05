@@ -161,6 +161,12 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Paste without yanking
+vim.keymap.set("v", "p", "_dP", {
+  desc = "[P]aste without yanking",
+  silent = true,
+})
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
