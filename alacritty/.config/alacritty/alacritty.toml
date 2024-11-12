@@ -2,5 +2,5 @@
   opacity = 1
 
 [font]
-  size = 16
+  size = 15
   normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
