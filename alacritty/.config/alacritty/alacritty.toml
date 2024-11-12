@@ -1,5 +1,7 @@
+[general]
+
 [window]
-  opacity = 0.95
+  opacity = 1
 
 [font]
   size = 16
