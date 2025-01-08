@@ -1,6 +1,6 @@
 nodejs 18.10.0
 yarn 1.22.19
-lazygit 0.43.1
+lazygit 0.44.1
 kubectl 1.26.1
 k9s 0.32.5
 lazydocker 0.20.0
