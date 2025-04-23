@@ -45,6 +45,7 @@ plugins=(
 	sudo
 	tmux
 	ubuntu
+	pyenv
 	yarn
 	z
 	zsh-syntax-highlighting
