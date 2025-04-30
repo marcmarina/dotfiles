@@ -6,3 +6,4 @@ k9s 0.32.5
 lazydocker 0.20.0
 gcloud 496.0.0
 neovim stable
+teleport-ent 15.4.17
