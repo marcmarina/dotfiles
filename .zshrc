@@ -49,7 +49,6 @@ plugins=(
 	sudo
 	tmux
 	ubuntu
-	uv
 	pyenv
 	yarn
 	z
