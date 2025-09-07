@@ -7,3 +7,4 @@ lazydocker 0.20.0
 gcloud 496.0.0
 neovim stable
 teleport-ent 18.1.7
+python 3.12.11
