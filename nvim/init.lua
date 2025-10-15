@@ -667,6 +667,7 @@ require("lazy").setup({
         "ts_ls",
         "prettierd",
         "eslint_d",
+        "pylsp",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
