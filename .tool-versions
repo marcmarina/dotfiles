@@ -1,4 +1,4 @@
-nodejs 18.10.0
+nodejs 22.15.0
 yarn 1.22.19
 lazygit 0.61.1
 kubectl 1.26.1
