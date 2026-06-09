@@ -635,12 +635,6 @@ require("lazy").setup({
         -- ts_ls = {},
         --
 
-        eslint = {
-          settings = {
-            workingDirectory = { mode = 'location' },
-          },
-        },
-
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
