@@ -4,8 +4,3 @@
 [font]
   size = 16
   normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
-
-[[keyboard.bindings]]
-key = "Return"
-mods = "Shift"
-chars = "\u001B\r"
