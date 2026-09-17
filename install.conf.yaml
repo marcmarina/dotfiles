@@ -14,7 +14,8 @@
     ~/.tool-versions: .tool-versions
     ~/.tmux.conf: .tmux.conf
     ~/.config/nvim: nvim
-    ~/.config/lazygit: lazygit 
+    ~/.config/lazygit: lazygit
+    ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
 
 - create:
   - ~/Scripts
