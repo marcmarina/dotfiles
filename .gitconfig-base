@@ -1,2 +1,13 @@
+[user]
+	name = Marc Marina
+	email = mmarina@findmypast.com
 [include]
   path = ~/dotfiles/.gitconfig
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+[http]
+	version = HTTP/1.1
