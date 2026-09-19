@@ -211,7 +211,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -264,13 +264,6 @@ require("lazy").setup({
         topdelete = { text = "‾" },
         changedelete = { text = "~" },
       },
-    },
-  },
-
-  {
-    "numToStr/Comment.nvim",
-    opts = {
-      -- add any options here
     },
   },
 
@@ -460,14 +453,8 @@ require("lazy").setup({
     -- used for completion, annotations and signatures of Neovim apis
     "folke/lazydev.nvim",
     ft = "lua",
-    opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "luvit-meta/library", words = { "vim%.uv" } },
-      },
-    },
+    opts = {},
   },
-  { "Bilal2453/luvit-meta", lazy = true },
   {
     -- Main LSP Configuration
     "neovim/nvim-lspconfig",
@@ -570,7 +557,7 @@ require("lazy").setup({
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
@@ -597,7 +584,7 @@ require("lazy").setup({
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             map("<leader>th", function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
             end, "[T]oggle Inlay [H]ints")
@@ -858,7 +845,6 @@ require("lazy").setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     "ellisonleao/gruvbox.nvim",
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    style = "warm",
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
@@ -917,8 +903,9 @@ require("lazy").setup({
   },
   { -- Highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
+    branch = "master", -- `main` dropped `nvim-treesitter.configs`
     build = ":TSUpdate",
-    main = "nvim-treesitter.configs", -- Sets main module to use for opts
+    main ="nvim-treesitter.configs", -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = {
@@ -967,7 +954,7 @@ require("lazy").setup({
   -- require 'kickstart.plugins.lint',
   require("kickstart.plugins.autopairs"),
   require("kickstart.plugins.neo-tree"),
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
