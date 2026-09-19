@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -713,20 +713,13 @@ require("lazy").setup({
           --  completions whenever it has completion options available.
           ["<C-Space>"] = cmp.mapping.complete({}),
 
-          -- Think of <c-l> as moving to the right of your snippet expansion.
-          --  So if you have a snippet that's like:
-          --  function $name($args)
-          --    $body
-          --  end
-          --
-          -- <c-l> will move you to the right of each of the expansion locations.
-          -- <c-h> is similar, except moving you backwards.
-          ["<C-l>"] = cmp.mapping(function()
+          -- <C-j> jumps forward through snippet placeholders, <C-k> backwards.
+          ["<C-j>"] = cmp.mapping(function()
             if luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump()
             end
           end, { "i", "s" }),
-          ["<C-h>"] = cmp.mapping(function()
+          ["<C-k>"] = cmp.mapping(function()
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
             end
@@ -824,11 +817,16 @@ require("lazy").setup({
         "c",
         "diff",
         "html",
+        "javascript",
+        "json",
         "lua",
         "luadoc",
         "markdown",
         "markdown_inline",
+        "python",
         "query",
+        "tsx",
+        "typescript",
         "vim",
         "vimdoc",
       },
@@ -860,19 +858,10 @@ require("lazy").setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require("kickstart.plugins.lint"),
   require("kickstart.plugins.autopairs"),
   require("kickstart.plugins.neo-tree"),
   require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
