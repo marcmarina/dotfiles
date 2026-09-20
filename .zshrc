@@ -51,7 +51,7 @@ plugins=(
 	ubuntu
 	pyenv
 	yarn
-	z
+	zoxide
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 )
