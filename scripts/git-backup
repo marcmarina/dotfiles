@@ -1,21 +1,20 @@
 #!/bin/bash
-
+# usage: git-backup [interval_seconds]
 INTERVAL=${1:-60}
 
-git pull --rebase
+git pull --rebase || exit 1
 
-# Infinite loop to run the commands every minute
 while true; do
-    # Run the Git commands
-		git add . && git commit -m "Backup $(date)" && git pull --rebase && git push
-
-    # Log the exit status of the last command
-    if [ $? -ne 0 ]; then
-				echo -e "\nNo backup needed at $(date)\n"
-    else
-        echo -e "\nBackup complete at $(date)\n"
+    if [ -n "$(git status --porcelain)" ]; then
+        git add -A && git commit -qm "Backup $(date)"
     fi
 
-    # Wait for 60 seconds before running again
-    sleep $INTERVAL
+    if git pull --rebase -q && git push -q; then
+        echo "Synced at $(date)"
+    else
+        git rebase --abort 2>/dev/null
+        echo "Sync FAILED at $(date)" >&2
+    fi
+
+    sleep "$INTERVAL"
 done
