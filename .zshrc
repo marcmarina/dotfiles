@@ -44,6 +44,7 @@ plugins=(
 	docker
 	docker-compose
 	fzf
+        kubectl
 	git
 	npm
 	sudo
