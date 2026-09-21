@@ -79,6 +79,8 @@ cask "bitwarden"
 cask "copilot-cli"
 # Universal database tool and SQL client
 cask "dbeaver-community"
+# Caskaydia Cove patched with Nerd Font icons
+cask "font-caskaydia-cove-nerd-font"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
 # Collaboration platform for API development
