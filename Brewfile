@@ -66,6 +66,8 @@ brew "python@3.11"
 brew "qemu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# General-purpose data compression with high compression ratio
+brew "xz"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer

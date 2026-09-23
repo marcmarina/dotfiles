@@ -1,6 +1,3 @@
-[user]
-	name = Marc Marina
-	email = mmarina@findmypast.com
 [include]
   path = ~/dotfiles/.gitconfig
 [credential "https://github.com"]
