@@ -58,18 +58,20 @@ brew "openjdk"
 brew "openldap"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
 # Generic machine emulator and virtualizer
 brew "qemu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# General-purpose data compression with high compression ratio
-brew "xz"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Terminal multiplexer
 brew "tmux"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 cask "authy"
@@ -79,16 +81,12 @@ cask "bitwarden"
 cask "copilot-cli"
 # Universal database tool and SQL client
 cask "dbeaver-community"
-# Caskaydia Cove patched with Nerd Font icons
 cask "font-caskaydia-cove-nerd-font"
+cask "iterm2"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
 # Collaboration platform for API development
 cask "postman"
-# Terminal emulator, SSH and serial client
-cask "tabby"
-# Tool to invert scroll direction for physical scroll wheels
-cask "unnaturalscrollwheels"
 vscode "aaron-bond.better-comments"
 vscode "adpyke.vscode-sql-formatter"
 vscode "ahmadalli.vscode-nginx-conf"
