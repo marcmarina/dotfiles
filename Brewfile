@@ -58,8 +58,6 @@ brew "openjdk"
 brew "openldap"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
-# Pyenv plugin to manage virtualenv
-brew "pyenv-virtualenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
 # Generic machine emulator and virtualizer
