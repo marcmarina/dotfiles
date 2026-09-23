@@ -71,3 +71,6 @@ function confirm {
 	fi
 }
 
+
+# VS Code CLI
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
