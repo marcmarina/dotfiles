@@ -7,5 +7,3 @@ asdf plugin add lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
 asdf plugin add neovim
 asdf plugin add github-cli
 asdf plugin add helm
-
-asdf install
