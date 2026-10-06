@@ -101,13 +101,14 @@ The Brewfile was deleted (see #4).
 
 ---
 
-## 🟡 `.zshrc` issues
-- `alias vimconf="nvim ~/.config/nvim/init.vim"`: the file is `init.lua`.
-- The `ubuntu` oh-my-zsh plugin is loaded on macOS. Make it conditional, or drop it.
-- `export PATH=$PATH:$HOME/.local/bin:...` *appends* user bins, so system binaries win over `~/.local/bin`. Prepending is usually what you want.
-- The VS Code PATH is hardcoded. Use VS Code's “Install 'code' command in PATH” instead, or guard it with `[[ -d ... ]]`.
-- ~~No Homebrew `shellenv` (see #4).~~ ✅
-- Indentation mixes tabs and spaces in `plugins=(...)` (the `kubectl` line).
+## ✅ `.zshrc` issues
+All fixed:
+- `vimconf` now opens `init.lua` (it pointed at a non-existent `init.vim`).
+- The `ubuntu` plugin (apt aliases) only loads where `apt` exists; `zsh-syntax-highlighting` and `zsh-autosuggestions` are still loaded last.
+- `~/.local/bin`, `~/Scripts` and `~/dotfiles/scripts` are now *prepended* to PATH, so your own tools win over system ones (asdf shims still come first).
+- The VS Code PATH entry is only added if the folder exists.
+- Homebrew `shellenv` is set up in `.zshrc` (see #4).
+- `kubectl` line indentation matches the rest of `plugins=(...)`.
 
 ---
 
@@ -145,5 +146,5 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 2. ~~Make the shell steps idempotent (#3).~~ ✅
 3. ~~Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.~~ ✅ (Brewfile deleted instead)
 4. ~~Remove dead or duplicate things (#10, #12).~~ ✅ (#8–#10, #12, Hyper config)
-5. Fix the `.zshrc` and `teardown.sh` issues, then write the README.
+5. ~~Fix the `.zshrc`~~ ✅ and `teardown.sh` issues, then write the README.
 6. Do a dry run in a fresh user account.

@@ -27,14 +27,14 @@ fi
 alias lg="lazygit"
 alias src="exec $SHELL"
 alias zshconf="nvim ~/.zshrc"
-alias vimconf="nvim ~/.config/nvim/init.vim"
+alias vimconf="nvim ~/.config/nvim/init.lua"
 
 
 #-----------#
 # Variables #
 #-----------#
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/Scripts:$HOME/dotfiles/scripts
+export PATH=$HOME/.local/bin:$HOME/Scripts:$HOME/dotfiles/scripts:$PATH
 export EDITOR=nvim
 
 export FZF_DEFAULT_COMMAND="$FD_COMMAND --type file --hidden --follow --exclude .git"
@@ -54,17 +54,20 @@ plugins=(
 	docker
 	docker-compose
 	fzf
-        kubectl
+	kubectl
 	git
 	npm
 	sudo
 	tmux
-	ubuntu
 	yarn
 	zoxide
-	zsh-syntax-highlighting
-	zsh-autosuggestions
 )
+
+# apt aliases, only where apt exists (Ubuntu/Debian)
+(( $+commands[apt] )) && plugins+=(ubuntu)
+
+# Keep these last
+plugins+=(zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,7 +90,8 @@ function confirm {
 
 
 # VS Code CLI
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+VSCODE_BIN="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+[[ -d "$VSCODE_BIN" ]] && export PATH="$PATH:$VSCODE_BIN"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
