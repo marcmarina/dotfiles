@@ -8,7 +8,7 @@ On a fresh Mac, `./install` today would:
 
 1. ~~**Delete your git identity.** It overwrites `~/.gitconfig`, and `[user]` isn't stored anywhere in the repo.~~ ✅ Fixed (#1)
 2. ~~**Probably replace your `.zshrc` symlink** with the oh-my-zsh template.~~ ✅ Fixed (#2)
-3. **Fail on any second run**, because the `git clone` steps aren't idempotent.
+3. ~~**Fail on any second run**, because the `git clone` steps aren't idempotent.~~ ✅ Fixed (#3)
 4. **Not install any software.** Homebrew, the `Brewfile`, asdf plugins and `asdf install` are all manual steps that aren't documented.
 
 ---
@@ -29,16 +29,12 @@ The order is `link` → `shell`. Running `install.sh --unattended` without `--ke
 
 **Done:** the installer now runs with `--unattended --keep-zshrc` (`--unattended` already implies `RUNZSH=no CHSH=no`), so the symlink is kept. Verified in a throwaway HOME: without the flag the link became a plain template file; with it, `~/.zshrc` stays linked to the repo.
 
-### 3. Shell steps aren't idempotent
-A second run fails at the first `git clone` because the directory already exists. The oh-my-zsh installer also exits non-zero if `~/.oh-my-zsh` exists. dotbot reports the run as failed and you can't tell whether anything was skipped.
+### 3. ✅ Shell steps weren't idempotent
+A second run hit "already exists" errors on the four `git clone` steps and the oh-my-zsh installer. Dotbot still ran every step, but ended with "Some tasks were not executed successfully", which hid any real failure.
 
-**Fix:** guard each step:
-```yaml
-- [test -d ~/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc, Installing oh-my-zsh]
-- [test -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting]
-# …same pattern for autosuggestions, powerlevel10k, tpm
-```
-Alternative: move the zsh plugins and tpm into git submodules (like `dotbot`), or use a plugin manager such as antidote or zinit.
+**Done:** each of those steps is now guarded with `test -d <folder> || …` and has a description. Verified by running the full `./install` twice against a throwaway HOME: both runs end with "All tasks executed successfully".
+
+Not covered: existing plugins aren't updated on rerun (they never were). If that matters later, consider submodules or a plugin manager (antidote, zinit).
 
 ---
 
@@ -153,7 +149,7 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 
 ## Suggested order of work
 1. ~~Fix #1 (gitconfig identity) and #2 (`--keep-zshrc`). These two can lose data.~~ ✅
-2. Make the shell steps idempotent (#3).
+2. ~~Make the shell steps idempotent (#3).~~ ✅
 3. Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.
 4. Remove dead or duplicate things (#10–#12, the stale Brewfile entries).
 5. Fix the `.zshrc` and `teardown.sh` issues, then write the README.
