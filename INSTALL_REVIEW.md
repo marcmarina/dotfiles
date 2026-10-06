@@ -7,7 +7,7 @@ Review of `install`, `install.conf.yaml`, `Brewfile`, `asdf/setup_asdf.sh`, `tea
 On a fresh Mac, `./install` today would:
 
 1. ~~**Delete your git identity.** It overwrites `~/.gitconfig`, and `[user]` isn't stored anywhere in the repo.~~ ✅ Fixed (#1)
-2. **Probably replace your `.zshrc` symlink** with the oh-my-zsh template.
+2. ~~**Probably replace your `.zshrc` symlink** with the oh-my-zsh template.~~ ✅ Fixed (#2)
 3. **Fail on any second run**, because the `git clone` steps aren't idempotent.
 4. **Not install any software.** Homebrew, the `Brewfile`, asdf plugins and `asdf install` are all manual steps that aren't documented.
 
@@ -24,10 +24,10 @@ Every run of `./install` copied `.gitconfig-base` over `~/.gitconfig`, which era
 ```
 `~/.gitconfig` stays machine-specific (include line + name/email); every shared setting lives in the repo's `.gitconfig`. Other machines can optionally remove their now-duplicated `[credential]`/`[http]` sections after pulling.
 
-### 2. oh-my-zsh installer clobbers the linked `~/.zshrc`
-The order is `link` → `shell`. When `install.sh --unattended` runs without `--keep-zshrc`, it moves the existing `~/.zshrc` to `~/.zshrc.pre-oh-my-zsh` and writes its own template. `teardown.sh` already removes `~/.zshrc.pre-oh-my-zsh`, which suggests this has happened before.
+### 2. ✅ oh-my-zsh installer clobbered the linked `~/.zshrc`
+The order is `link` → `shell`. Running `install.sh --unattended` without `--keep-zshrc` moved the linked `~/.zshrc` to `~/.zshrc.pre-oh-my-zsh` and wrote its own template in its place.
 
-**Fix:** pass `--keep-zshrc` (and `RUNZSH=no CHSH=no` if you prefer), or run the `link` step after the shell step.
+**Done:** the installer now runs with `--unattended --keep-zshrc` (`--unattended` already implies `RUNZSH=no CHSH=no`), so the symlink is kept. Verified in a throwaway HOME: without the flag the link became a plain template file; with it, `~/.zshrc` stays linked to the repo.
 
 ### 3. Shell steps aren't idempotent
 A second run fails at the first `git clone` because the directory already exists. The oh-my-zsh installer also exits non-zero if `~/.oh-my-zsh` exists. dotbot reports the run as failed and you can't tell whether anything was skipped.
@@ -152,7 +152,7 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 ---
 
 ## Suggested order of work
-1. ~~Fix #1 (gitconfig identity)~~ ✅ and #2 (`--keep-zshrc`). These two can lose data.
+1. ~~Fix #1 (gitconfig identity) and #2 (`--keep-zshrc`). These two can lose data.~~ ✅
 2. Make the shell steps idempotent (#3).
 3. Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.
 4. Remove dead or duplicate things (#10–#12, the stale Brewfile entries).
