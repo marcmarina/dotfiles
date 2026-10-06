@@ -137,7 +137,7 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 ---
 
 ## 🟢 Nice-to-haves
-- **README.md** with a one-line bootstrap (`git clone --recursive … && ./install`) and the manual steps (Karabiner permissions, `gh auth login`, `p10k configure`, font selection).
+- ✅ **README.md**: done. It covers the bootstrap, what install does, the manual steps (git identity, `gh auth login`, `chsh` on Ubuntu, font, Karabiner permissions), updating and teardown.
 - **OS split:** `install.conf.yaml` is macOS-only in practice, while `ubuntu/install_dependencies.sh` and `scripts/update` (apt) are Linux-only. `scripts/update` is still on your macOS PATH. Consider `install.conf.macos.yaml` / `install.conf.linux.yaml`, or `if [ "$(uname)" = Darwin ]` guards.
 - **Default shell on Ubuntu:** install doesn't make zsh the login shell, so a new Ubuntu machine starts in bash until you run `chsh -s $(which zsh)` once. Could be automated at the end of `ubuntu/install_dependencies.sh`, reusing sudo's cached password from the apt step and skipping when already set:
   `[ "$(getent passwd "$USER" | cut -d: -f7)" = "$(command -v zsh)" ] || sudo chsh -s "$(command -v zsh)" "$USER"`
@@ -153,5 +153,5 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 2. ~~Make the shell steps idempotent (#3).~~ ✅
 3. ~~Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.~~ ✅ (Brewfile deleted instead)
 4. ~~Remove dead or duplicate things (#10, #12).~~ ✅ (#8–#10, #12, Hyper config)
-5. ~~Fix the `.zshrc` and `teardown.sh` issues~~ ✅, then write the README.
+5. ~~Fix the `.zshrc` and `teardown.sh` issues, then write the README.~~ ✅
 6. Do a dry run in a fresh user account.
