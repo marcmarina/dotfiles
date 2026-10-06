@@ -6,7 +6,7 @@ Review of `install`, `install.conf.yaml`, `Brewfile`, `asdf/setup_asdf.sh`, `tea
 
 On a fresh Mac, `./install` today would:
 
-1. **Delete your git identity.** It overwrites `~/.gitconfig`, and `[user]` isn't stored anywhere in the repo.
+1. ~~**Delete your git identity.** It overwrites `~/.gitconfig`, and `[user]` isn't stored anywhere in the repo.~~ ✅ Fixed (#1)
 2. **Probably replace your `.zshrc` symlink** with the oh-my-zsh template.
 3. **Fail on any second run**, because the `git clone` steps aren't idempotent.
 4. **Not install any software.** Homebrew, the `Brewfile`, asdf plugins and `asdf install` are all manual steps that aren't documented.
@@ -15,22 +15,14 @@ On a fresh Mac, `./install` today would:
 
 ## 🔴 Critical
 
-### 1. `cp .gitconfig-base ~/.gitconfig` wipes `[user]`
-Your live `~/.gitconfig` has `name`/`email` that aren't in `.gitconfig-base`. Every run of `./install` erases them, and new commits then fail or get the wrong author.
+### 1. ✅ `cp .gitconfig-base ~/.gitconfig` wiped `[user]`
+Every run of `./install` copied `.gitconfig-base` over `~/.gitconfig`, which erased the name and email (they aren't stored in the repo).
 
-**Fix:** Keep identity in a local file that isn't tracked, and only create `~/.gitconfig` when it doesn't exist:
-```ini
-# .gitconfig-base
-[include]
-  path = ~/dotfiles/.gitconfig
-[include]
-  path = ~/.gitconfig.local   # [user] name/email, machine-specific
-```
+**Done:** `.gitconfig-base` is gone. Its `[credential]` and `[http]` settings moved into the shared `.gitconfig`, and install now only adds an include line to `~/.gitconfig`:
 ```yaml
-- shell:
-  - [test -f ~/.gitconfig || cp .gitconfig-base ~/.gitconfig, Seeding ~/.gitconfig]
+- [git config --global include.path '~/dotfiles/.gitconfig', Linking shared git config]
 ```
-(Or just link `~/.gitconfig` to `.gitconfig-base` and put everything machine-specific in `~/.gitconfig.local`.)
+`~/.gitconfig` stays machine-specific (include line + name/email); every shared setting lives in the repo's `.gitconfig`. Other machines can optionally remove their now-duplicated `[credential]`/`[http]` sections after pulling.
 
 ### 2. oh-my-zsh installer clobbers the linked `~/.zshrc`
 The order is `link` → `shell`. When `install.sh --unattended` runs without `--keep-zshrc`, it moves the existing `~/.zshrc` to `~/.zshrc.pre-oh-my-zsh` and writes its own template. `teardown.sh` already removes `~/.zshrc.pre-oh-my-zsh`, which suggests this has happened before.
@@ -67,7 +59,7 @@ Alternative: move the zsh plugins and tpm into git submodules (like `dotbot`), o
 (Homebrew on Apple Silicon also needs `eval "$(/opt/homebrew/bin/brew shellenv)"` in the same shell before `brew bundle`. It's also missing from `.zshrc`, so it currently comes from something like `/etc/paths.d`. Worth making explicit.)
 
 ### 5. `gh` credential helper with no `gh`
-`.gitconfig-base` sets `!gh auth git-credential`, but `gh` only gets installed later through asdf. Any HTTPS git operation between those two steps fails, including the oh-my-zsh, powerlevel10k and tpm clones if they hit GitHub auth. Either add `brew "gh"` to the Brewfile and install it early, or copy the gitconfig after tools are installed.
+`.gitconfig` sets `!gh auth git-credential`, but `gh` only gets installed later through asdf. Any HTTPS git operation between those two steps fails, including the oh-my-zsh, powerlevel10k and tpm clones if they hit GitHub auth. Either add `brew "gh"` to the Brewfile and install it early, or add the include line after tools are installed.
 
 ### 6. `asdf/setup_asdf.sh` is out of sync with `.tool-versions`
 - `.tool-versions` lists **uv**, but no `asdf plugin add uv` exists, so `asdf install` would fail for it.
@@ -154,13 +146,13 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 - **OS split:** `install.conf.yaml` is macOS-only in practice, while `ubuntu/install_dependencies.sh` and `scripts/update` (apt) are Linux-only. `scripts/update` is still on your macOS PATH. Consider `install.conf.macos.yaml` / `install.conf.linux.yaml`, or `if [ "$(uname)" = Darwin ]` guards.
 - **macOS defaults:** a `macos/defaults.sh` (key repeat, Finder, Dock, screenshots dir) is one of the most useful things to have before a wipe.
 - **Secrets / SSH / GPG:** you have `gnupg` installed, but no GPG/SSH setup is documented.
-- **`[http] version = HTTP/1.1`** in `.gitconfig-base` is a global workaround (usually for large pushes or a flaky proxy). Leave a comment explaining why, or remove it.
+- **`[http] version = HTTP/1.1`** in `.gitconfig` is a global workaround (usually for large pushes or a flaky proxy). Leave a comment explaining why, or remove it.
 - **Test the bootstrap** in a throwaway macOS user account, or in a Tart/UTM VM, before relying on it for a wipe.
 
 ---
 
 ## Suggested order of work
-1. Fix #1 (gitconfig identity) and #2 (`--keep-zshrc`). These two can lose data.
+1. ~~Fix #1 (gitconfig identity)~~ ✅ and #2 (`--keep-zshrc`). These two can lose data.
 2. Make the shell steps idempotent (#3).
 3. Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.
 4. Remove dead or duplicate things (#10–#12, the stale Brewfile entries).

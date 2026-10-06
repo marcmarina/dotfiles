@@ -4,3 +4,11 @@
 	rebase = true
 [rebase]
 	autostash = true
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+[http]
+	version = HTTP/1.1
