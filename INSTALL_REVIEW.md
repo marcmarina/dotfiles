@@ -112,11 +112,18 @@ All fixed:
 
 ---
 
-## 🟡 `teardown.sh`
-- It doesn't remove things `install` creates: `~/.config/karabiner/karabiner.json`, `~/.gitconfig`, `~/.tmux/plugins` (it removes `~/.tmux`, which is fine), `~/Scripts`.
-- It removes things `install` never creates: `~/.fzf`.
-- `rm -rf ~/.asdf` deletes **every installed tool version**. That's more than a dotfiles teardown should do. Make it opt-in.
-- Quote `"$HOME"`, and consider a confirmation prompt.
+## ✅ `teardown.sh`
+**Done:** rewritten to match what `install` creates:
+- Asks for confirmation first.
+- Removes every link from `install.conf.yaml` (now including Karabiner and Alacritty), but only if it's still a symlink, so real files are never deleted.
+- Removes oh-my-zsh, `~/.zshrc.pre-oh-my-zsh` and `~/.tmux` (tpm and plugins).
+- Removes only the include line from `~/.gitconfig`; name and email stay.
+- Removes `~/Scripts` only if it's empty.
+- No longer touches `~/.fzf` (install never created it).
+- `~/.asdf` and the asdf binary are only deleted with `./teardown.sh --asdf`.
+- `$HOME` is quoted everywhere. brew/apt packages are left alone.
+
+Verified in a throwaway HOME, including a second run.
 
 ---
 
@@ -146,5 +153,5 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 2. ~~Make the shell steps idempotent (#3).~~ ✅
 3. ~~Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.~~ ✅ (Brewfile deleted instead)
 4. ~~Remove dead or duplicate things (#10, #12).~~ ✅ (#8–#10, #12, Hyper config)
-5. ~~Fix the `.zshrc`~~ ✅ and `teardown.sh` issues, then write the README.
+5. ~~Fix the `.zshrc` and `teardown.sh` issues~~ ✅, then write the README.
 6. Do a dry run in a fresh user account.
