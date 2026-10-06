@@ -25,9 +25,13 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [git config --global include.path '~/dotfiles/.gitconfig', Linking shared git config]
+  - command: if [ "$(uname)" = Darwin ]; then sh macos/install_dependencies.sh; else sh ubuntu/install_dependencies.sh; fi
+    description: Installing system packages
   - [curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim]
   - [test -d ~/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc, Installing oh-my-zsh]
   - [test -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting, Installing zsh-syntax-highlighting]
   - [test -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions, Installing zsh-autosuggestions]
   - [test -d ~/.oh-my-zsh/custom/themes/powerlevel10k || git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k, Installing powerlevel10k]
   - [test -d ~/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm, Installing tpm]
+  - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
+  - [sh asdf/setup_asdf.sh, Installing asdf and tool versions]

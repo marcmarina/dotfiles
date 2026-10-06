@@ -9,7 +9,7 @@ On a fresh Mac, `./install` today would:
 1. ~~**Delete your git identity.** It overwrites `~/.gitconfig`, and `[user]` isn't stored anywhere in the repo.~~ ✅ Fixed (#1)
 2. ~~**Probably replace your `.zshrc` symlink** with the oh-my-zsh template.~~ ✅ Fixed (#2)
 3. ~~**Fail on any second run**, because the `git clone` steps aren't idempotent.~~ ✅ Fixed (#3)
-4. **Not install any software.** Homebrew, the `Brewfile`, asdf plugins and `asdf install` are all manual steps that aren't documented.
+4. ~~**Not install any software.** Homebrew, the `Brewfile`, asdf plugins and `asdf install` are all manual steps that aren't documented.~~ ✅ Fixed (#4)
 
 ---
 
@@ -40,30 +40,32 @@ Not covered: existing plugins aren't updated on rerun (they never were). If that
 
 ## 🟠 Missing steps / ordering
 
-### 4. No software gets installed
-`install.conf.yaml` doesn't install Homebrew, run `brew bundle`, run `asdf/setup_asdf.sh` or run `asdf install`. On a fresh machine the shell config references `nvim`, `fzf`, `fd`, `zoxide`, `lazygit` and `gh`, and none of them would be present.
+### 4. ✅ No software got installed
+`install.conf.yaml` didn't install any packages or tools, so on a fresh machine `nvim`, `fzf`, `fd`, `zoxide`, `lazygit` and `gh` were all missing.
 
-**Fix:** add a bootstrap section, ideally behind an OS check:
-```yaml
-- shell:
-  - [command -v brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)", Installing Homebrew]
-  - [brew bundle --file=Brewfile, Installing Brewfile]
-  - [sh asdf/setup_asdf.sh, Adding asdf plugins]
-  - [asdf install, Installing tool versions]
-  - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
-```
-(Homebrew on Apple Silicon also needs `eval "$(/opt/homebrew/bin/brew shellenv)"` in the same shell before `brew bundle`. It's also missing from `.zshrc`, so it currently comes from something like `/etc/paths.d`. Worth making explicit.)
+**Done:** install now runs, in order:
+1. **System packages** (before oh-my-zsh, which needs `zsh`, `git` and `curl`), picked by `uname`:
+   - macOS: `macos/install_dependencies.sh` installs Homebrew if missing, then only the missing ones of `zsh tmux git fzf fd ripgrep zoxide wget gnupg btop`.
+   - Ubuntu: `ubuntu/install_dependencies.sh` adds the git PPA and `apt-get install`s `zsh tmux git curl fzf fd-find ripgrep zoxide wget gnupg btop gcc g++ unzip`.
+2. **tmux plugins** via tpm's `install_plugins`.
+3. **asdf** via `asdf/setup_asdf.sh` (see #6), then `asdf install`.
 
-### 5. `gh` credential helper with no `gh`
-`.gitconfig` sets `!gh auth git-credential`, but `gh` only gets installed later through asdf. Any HTTPS git operation between those two steps fails, including the oh-my-zsh, powerlevel10k and tpm clones if they hit GitHub auth. Either add `brew "gh"` to the Brewfile and install it early, or add the include line after tools are installed.
+`.zshrc` now sets up Homebrew's PATH itself (`brew shellenv`, if brew exists) instead of relying on `~/.zprofile`, which isn't in the repo.
 
-### 6. `asdf/setup_asdf.sh` is out of sync with `.tool-versions`
-- `.tool-versions` lists **uv**, but no `asdf plugin add uv` exists, so `asdf install` would fail for it.
-- argocd, bun and golang plugins are installed locally but aren't in the script or `.tool-versions`. Either add them or remove them.
-- The script has no shebang and no `set -e`, and `asdf plugin add` exits non-zero when the plugin already exists. Make it tolerant: `asdf plugin add X || true`, or loop over `cut -d' ' -f1 .tool-versions`.
+The Brewfile (Mac apps, VS Code extensions, work npm packages) was deleted: apps are installed by hand, and VS Code extensions come from Settings Sync.
 
-### 7. tmux plugins are never installed
-tpm is cloned, but the plugins need `prefix + I` or `~/.tmux/plugins/tpm/bin/install_plugins`.
+Verified with the full `./install`, run twice, on macOS (throwaway HOME) and in a fresh Ubuntu 24.04 container; both end with "All tasks executed successfully" and all tools resolve in zsh.
+
+### 5. ✅ `gh` credential helper with no `gh`
+Less of a problem than first described: git only asks the credential helper when GitHub requires a login, so the public clones during install aren't affected. `gh` is installed by the asdf step; run `gh auth login` once afterwards for private repos and pushes.
+
+### 6. ✅ `asdf/setup_asdf.sh` was out of sync with `.tool-versions`
+**Done:** the script now downloads the asdf binary (pinned `v0.20.2`) to `~/.local/bin` if missing, on macOS and Linux; adds each plugin only if it isn't already added (now including `uv`); and runs `asdf install` from `$HOME`. It also puts `~/.local/bin` on PATH, because the nodejs plugin calls `asdf` itself (this broke the first Ubuntu test).
+
+Still open: argocd, bun and golang plugins are installed on this Mac but aren't in `.tool-versions`. Add them there (and to the script) or remove them.
+
+### 7. ✅ tmux plugins were never installed
+**Done:** see #4.
 
 ### 8. Redundant submodule step
 `./install` already runs `git submodule update --init --recursive dotbot`. The extra `[git submodule update --init --recursive]` shell step does nothing unless you add more submodules, which you might (see #3).
@@ -84,10 +86,8 @@ The `alacritty/.config/...` layout is stow-style, while everything else is dotbo
 ### 10. Dead step: vim-plug
 `install.conf.yaml` downloads `plug.vim` into `~/.vim`, but no `.vimrc` exists in the repo and you use Neovim (lazy.nvim via kickstart). Remove that step and the `rm -rf ~/.vim` in `teardown.sh`.
 
-### 11. Duplicated tooling: brew vs. asdf
-- **asdf** is in the Brewfile and also at `~/.local/bin/asdf` (v0.20.2, which is the one being used). Keep one of them.
-- **node** (brew) vs. **nodejs** (asdf), and **k9s** (brew) vs. **k9s** (asdf). The one that wins depends on PATH order, so pick one per tool.
-- **iterm2**, **alacritty** and Hyper: three terminals. Remove the ones you don't use.
+### 11. ✅ Duplicated tooling: brew vs. asdf
+Resolved by deleting the Brewfile: versioned tools (node, k9s, …) come only from asdf, and asdf itself comes from its release binary on both OSes.
 
 ### 12. `lazygit/` folder
 - `config.yml` is empty (0 bytes).
@@ -95,18 +95,8 @@ The `alacritty/.config/...` layout is stow-style, while everything else is dotbo
 
 ---
 
-## 🟡 Brewfile hygiene
-
-The Brewfile looks like a raw `brew bundle dump`:
-- **`openssl@1.1`** has been disabled/removed in Homebrew, so `brew bundle` will error on it.
-- **`authy`**: the Authy desktop app was discontinued (2024). Remove it.
-- **`python@3.11`**: old, and you already manage Python tooling with `uv`.
-- Library formulae such as `freetype`, `cairo`, `gnutls`, `guile`, `harfbuzz`, `libomp`, `libtiff`, `little-cms2`, `luv`, `newt` and `openldap` were probably pulled in as dependencies or for one-off builds. Brew installs real dependencies automatically, so trim them unless you need them directly.
-- `tap "atlassian/acli"` is tapped, but no `acli` formula is listed.
-- `npm "@findmypast/..."` packages are private or work-specific. On a personal machine without registry auth, `brew bundle` will fail on them. Move them to a separate `Brewfile.work`, or install them conditionally.
-- Missing tools your config relies on: `git` (newer than Apple's), `gh` (see #5), and possibly `neovim`/`lazygit` if you drop asdf for them.
-
-Use `brew bundle check --verbose` and `brew bundle cleanup` to keep the file in sync with the machine.
+## ✅ Brewfile hygiene
+The Brewfile was deleted (see #4).
 
 ---
 
@@ -115,7 +105,7 @@ Use `brew bundle check --verbose` and `brew bundle cleanup` to keep the file in 
 - The `ubuntu` oh-my-zsh plugin is loaded on macOS. Make it conditional, or drop it.
 - `export PATH=$PATH:$HOME/.local/bin:...` *appends* user bins, so system binaries win over `~/.local/bin`. Prepending is usually what you want.
 - The VS Code PATH is hardcoded. Use VS Code's “Install 'code' command in PATH” instead, or guard it with `[[ -d ... ]]`.
-- No Homebrew `shellenv` (see #4).
+- ~~No Homebrew `shellenv` (see #4).~~ ✅
 - Indentation mixes tabs and spaces in `plugins=(...)` (the `kubectl` line).
 
 ---
@@ -140,6 +130,8 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 ## 🟢 Nice-to-haves
 - **README.md** with a one-line bootstrap (`git clone --recursive … && ./install`) and the manual steps (Karabiner permissions, `gh auth login`, `p10k configure`, font selection).
 - **OS split:** `install.conf.yaml` is macOS-only in practice, while `ubuntu/install_dependencies.sh` and `scripts/update` (apt) are Linux-only. `scripts/update` is still on your macOS PATH. Consider `install.conf.macos.yaml` / `install.conf.linux.yaml`, or `if [ "$(uname)" = Darwin ]` guards.
+- **Default shell on Ubuntu:** install doesn't make zsh the login shell, so a new Ubuntu machine starts in bash until you run `chsh -s $(which zsh)` once. Could be automated at the end of `ubuntu/install_dependencies.sh`, reusing sudo's cached password from the apt step and skipping when already set:
+  `[ "$(getent passwd "$USER" | cut -d: -f7)" = "$(command -v zsh)" ] || sudo chsh -s "$(command -v zsh)" "$USER"`
 - **macOS defaults:** a `macos/defaults.sh` (key repeat, Finder, Dock, screenshots dir) is one of the most useful things to have before a wipe.
 - **Secrets / SSH / GPG:** you have `gnupg` installed, but no GPG/SSH setup is documented.
 - **`[http] version = HTTP/1.1`** in `.gitconfig` is a global workaround (usually for large pushes or a flaky proxy). Leave a comment explaining why, or remove it.
@@ -150,7 +142,7 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 ## Suggested order of work
 1. ~~Fix #1 (gitconfig identity) and #2 (`--keep-zshrc`). These two can lose data.~~ ✅
 2. ~~Make the shell steps idempotent (#3).~~ ✅
-3. Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.
-4. Remove dead or duplicate things (#10–#12, the stale Brewfile entries).
+3. ~~Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.~~ ✅ (Brewfile deleted instead)
+4. Remove dead or duplicate things (#10, #12).
 5. Fix the `.zshrc` and `teardown.sh` issues, then write the README.
 6. Do a dry run in a fresh user account.

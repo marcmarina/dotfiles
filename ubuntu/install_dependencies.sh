@@ -1,6 +1,10 @@
 #!/bin/sh
 
-sudo add-apt-repository ppa:git-core/ppa
+set -e
 
-sudo apt update
-sudo apt install git wget curl zsh tmux ripgrep fzf fd-find gcc g++
+sudo apt-get update
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository -y ppa:git-core/ppa
+
+sudo apt-get update
+sudo apt-get install -y zsh tmux git curl fzf fd-find ripgrep zoxide wget gnupg btop gcc g++ unzip
