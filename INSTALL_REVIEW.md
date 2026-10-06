@@ -67,8 +67,8 @@ Still open: argocd, bun and golang plugins are installed on this Mac but aren't 
 ### 7. ✅ tmux plugins were never installed
 **Done:** see #4.
 
-### 8. Redundant submodule step
-`./install` already runs `git submodule update --init --recursive dotbot`. The extra `[git submodule update --init --recursive]` shell step does nothing unless you add more submodules, which you might (see #3).
+### 8. ✅ Redundant submodule step
+**Done:** removed. `./install` already runs `git submodule update --init --recursive dotbot` before dotbot starts, and dotbot is the only submodule.
 
 ---
 
@@ -77,21 +77,22 @@ Still open: argocd, bun and golang plugins are installed on this Mac but aren't 
 ### 9. Configs in the repo that aren't linked
 | Repo path | Live state | Action |
 |---|---|---|
-| `alacritty/.config/alacritty/alacritty.toml` | `~/.config/alacritty` is a **copy**, not a link (identical today) | Add `~/.config/alacritty/alacritty.toml: alacritty/.config/alacritty/alacritty.toml` |
-| `hyperjs/.hyper.js` | not linked, Hyper not in Brewfile | Link it + add cask, or delete it |
+| `alacritty/.config/alacritty/alacritty.toml` | Already a symlink into the repo on this Mac, but made by hand; install didn't create it. (The first version of this review wrongly called it a copy.) | ✅ Added to the `link` section |
+| `hyperjs/.hyper.js` | not linked, Hyper not installed, unchanged since Nov 2024 | ✅ Deleted (still in git history) |
 | `.editorconfig` | not linked | Fine if it's only for this repo. Link to `~/.editorconfig` if you want a global default |
 
-The `alacritty/.config/...` layout is stow-style, while everything else is dotbot-style. Pick one (you have `stow` in the Brewfile and don't use it).
+The `alacritty/.config/...` layout is stow-style, while everything else is dotbot-style. Harmless, but could be flattened to `alacritty/alacritty.toml`.
 
-### 10. Dead step: vim-plug
-`install.conf.yaml` downloads `plug.vim` into `~/.vim`, but no `.vimrc` exists in the repo and you use Neovim (lazy.nvim via kickstart). Remove that step and the `rm -rf ~/.vim` in `teardown.sh`.
+### 10. ✅ Dead step: vim-plug
+**Done:** removed the `plug.vim` download (no `.vimrc` exists; you use Neovim) and the matching `rm -rf ~/.vim` in `teardown.sh`. The leftover `~/.vim` on existing machines is harmless; delete it by hand if you like.
 
 ### 11. ✅ Duplicated tooling: brew vs. asdf
 Resolved by deleting the Brewfile: versioned tools (node, k9s, …) come only from asdf, and asdf itself comes from its release binary on both OSes.
 
-### 12. `lazygit/` folder
-- `config.yml` is empty (0 bytes).
-- `temp_lazygit.tar.gz` is a 6.4 MB committed release tarball (probably left over from an Ubuntu install). It's linked into `~/.config/lazygit` and adds about half of the 12.7 MB repo size. Delete it, add `*.tar.gz` to the ignore list, and optionally purge it from history with `git filter-repo`.
+### 12. ✅ `lazygit/` folder
+**Done:** deleted `temp_lazygit.tar.gz`, a 6.4 MB lazygit release. It came from lazygit's self-updater, which downloads to `<config dir>/temp_lazygit.tar.gz` and never deletes it; since `~/.config/lazygit` links to the repo, `git-backup` committed it. `config.yml` now sets `update.method: never`, so the updater no longer runs (it would also overwrite asdf's pinned binary); lazygit is updated through `.tool-versions` instead.
+
+Not done, by choice: purging the tarball from git history. It would need a full history rewrite, a force push and re-cloning on every machine, for about 6 MB of savings.
 
 ---
 
@@ -143,6 +144,6 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 1. ~~Fix #1 (gitconfig identity) and #2 (`--keep-zshrc`). These two can lose data.~~ ✅
 2. ~~Make the shell steps idempotent (#3).~~ ✅
 3. ~~Add the brew → asdf → tpm bootstrap (#4–#7) and clean up the Brewfile so `brew bundle` succeeds.~~ ✅ (Brewfile deleted instead)
-4. Remove dead or duplicate things (#10, #12).
+4. ~~Remove dead or duplicate things (#10, #12).~~ ✅ (#8–#10, #12, Hyper config)
 5. Fix the `.zshrc` and `teardown.sh` issues, then write the README.
 6. Do a dry run in a fresh user account.

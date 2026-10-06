@@ -17,17 +17,16 @@
     ~/.config/nvim: nvim
     ~/.config/lazygit: lazygit
     ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
+    ~/.config/alacritty/alacritty.toml: alacritty/.config/alacritty/alacritty.toml
 
 - create:
   - ~/Scripts
   - ~/.config
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
   - [git config --global include.path '~/dotfiles/.gitconfig', Linking shared git config]
   - command: if [ "$(uname)" = Darwin ]; then sh macos/install_dependencies.sh; else sh ubuntu/install_dependencies.sh; fi
     description: Installing system packages
-  - [curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim]
   - [test -d ~/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc, Installing oh-my-zsh]
   - [test -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting, Installing zsh-syntax-highlighting]
   - [test -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions, Installing zsh-autosuggestions]
