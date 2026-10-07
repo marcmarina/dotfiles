@@ -25,7 +25,7 @@
 
 - shell:
   - [git config --global include.path '~/dotfiles/.gitconfig', Linking shared git config]
-  - command: if [ "$(uname)" = Darwin ]; then sh macos/install_dependencies.sh; else sh ubuntu/install_dependencies.sh; fi
+  - command: if [ "$(uname)" = Darwin ]; then sh macos/install_dependencies.sh; else sh linux/install_dependencies.sh; fi
     description: Installing system packages
   - [test -d ~/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc, Installing oh-my-zsh]
   - [test -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting, Installing zsh-syntax-highlighting]

@@ -1,6 +1,6 @@
 # dotfiles
 
-My shell and editor setup for macOS and Ubuntu, installed with [dotbot](https://github.com/anishathalye/dotbot).
+My shell and editor setup for macOS and Linux (Debian/Ubuntu), installed with [dotbot](https://github.com/anishathalye/dotbot).
 
 ## Install
 
@@ -19,7 +19,8 @@ No SSH key yet? Clone over HTTPS instead: `https://github.com/marcmarina/dotfile
 2. Adds `[include] path = ~/dotfiles/.gitconfig` to `~/.gitconfig`, which keeps your name and email.
 3. Installs system packages:
    - **macOS:** Homebrew if missing, then `zsh tmux git fzf fd ripgrep zoxide wget gnupg btop`.
-   - **Ubuntu:** the git PPA, then the same tools plus `curl gcc g++ unzip` via apt. It asks for your sudo password.
+   - **Linux:** the same tools plus `curl gcc g++ unzip` via apt. On Ubuntu it adds the git PPA
+     first for a newer git; on Debian it uses the git the distro ships. It asks for your sudo password.
 4. Installs oh-my-zsh, zsh-syntax-highlighting, zsh-autosuggestions, powerlevel10k, tpm and the tmux plugins.
 5. Installs asdf to `~/.local/bin`, adds the plugins, and installs every version in `.tool-versions`.
 
@@ -34,7 +35,7 @@ These are one-time manual steps:
   git config --global user.email "you@example.com"
   ```
 - **GitHub login:** `gh auth login`. It's needed for private repos and pushing over HTTPS.
-- **Ubuntu only: make zsh the login shell.** Run `chsh -s "$(command -v zsh)"` and enter your password, then log out and back in.
+- **Linux only: make zsh the login shell.** Run `chsh -s "$(command -v zsh)"` and enter your password, then log out and back in.
 - **Font:** install a Nerd Font (e.g. MesloLGS NF) and select it in your terminal, or the prompt icons won't render. In iTerm2, `p10k configure` can install it for you.
 - **macOS only:** open Karabiner-Elements and grant the permissions it asks for. Karabiner itself and the other apps (Alacritty, VS Code) are installed by hand.
 
@@ -58,7 +59,7 @@ It asks before deleting anything. It only removes links that are still symlinks,
 | Path | What |
 |---|---|
 | `install`, `install.conf.yaml` | dotbot entry point and config |
-| `macos/`, `ubuntu/` | system package installers |
+| `macos/`, `linux/` | system package installers |
 | `asdf/setup_asdf.sh` | asdf binary, plugins and tool versions |
 | `.gitconfig` | shared git settings, included from `~/.gitconfig` |
 | `scripts/` | on PATH; `update` (apt upgrade), `git-backup` |

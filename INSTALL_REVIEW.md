@@ -46,7 +46,7 @@ Not covered: existing plugins aren't updated on rerun (they never were). If that
 **Done:** install now runs, in order:
 1. **System packages** (before oh-my-zsh, which needs `zsh`, `git` and `curl`), picked by `uname`:
    - macOS: `macos/install_dependencies.sh` installs Homebrew if missing, then only the missing ones of `zsh tmux git fzf fd ripgrep zoxide wget gnupg btop`.
-   - Ubuntu: `ubuntu/install_dependencies.sh` adds the git PPA and `apt-get install`s `zsh tmux git curl fzf fd-find ripgrep zoxide wget gnupg btop gcc g++ unzip`.
+   - Ubuntu: `linux/install_dependencies.sh` adds the git PPA and `apt-get install`s `zsh tmux git curl fzf fd-find ripgrep zoxide wget gnupg btop gcc g++ unzip`.
 2. **tmux plugins** via tpm's `install_plugins`.
 3. **asdf** via `asdf/setup_asdf.sh` (see #6), then `asdf install`.
 
@@ -138,8 +138,8 @@ Suggestions: run it only on specific paths (e.g. `.p10k.zsh`, `karabiner/`, `laz
 
 ## 🟢 Nice-to-haves
 - ✅ **README.md**: done. It covers the bootstrap, what install does, the manual steps (git identity, `gh auth login`, `chsh` on Ubuntu, font, Karabiner permissions), updating and teardown.
-- **OS split:** `install.conf.yaml` is macOS-only in practice, while `ubuntu/install_dependencies.sh` and `scripts/update` (apt) are Linux-only. `scripts/update` is still on your macOS PATH. Consider `install.conf.macos.yaml` / `install.conf.linux.yaml`, or `if [ "$(uname)" = Darwin ]` guards.
-- **Default shell on Ubuntu:** install doesn't make zsh the login shell, so a new Ubuntu machine starts in bash until you run `chsh -s $(which zsh)` once. Could be automated at the end of `ubuntu/install_dependencies.sh`, reusing sudo's cached password from the apt step and skipping when already set:
+- **OS split:** `install.conf.yaml` is macOS-only in practice, while `linux/install_dependencies.sh` and `scripts/update` (apt) are Linux-only. `scripts/update` is still on your macOS PATH. Consider `install.conf.macos.yaml` / `install.conf.linux.yaml`, or `if [ "$(uname)" = Darwin ]` guards.
+- **Default shell on Ubuntu:** install doesn't make zsh the login shell, so a new Ubuntu machine starts in bash until you run `chsh -s $(which zsh)` once. Could be automated at the end of `linux/install_dependencies.sh`, reusing sudo's cached password from the apt step and skipping when already set:
   `[ "$(getent passwd "$USER" | cut -d: -f7)" = "$(command -v zsh)" ] || sudo chsh -s "$(command -v zsh)" "$USER"`
 - **macOS defaults:** a `macos/defaults.sh` (key repeat, Finder, Dock, screenshots dir) is one of the most useful things to have before a wipe.
 - **Secrets / SSH / GPG:** you have `gnupg` installed, but no GPG/SSH setup is documented.
