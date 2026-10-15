@@ -1,7 +1,43 @@
+# Homelab (from Obsidian: Homelab/PVE Cluster.md)
+Host pve
+    HostName 192.168.31.10
+    User root
+
+Host pve-2
+    HostName 192.168.31.11
+    User root
+
+Host pbs
+    HostName 192.168.31.12
+    User root
+
 Host dev
-	HostName 192.168.31.171
-	User marcmarina
+    HostName 192.168.31.171
+    User marcmarina
+    ForwardAgent yes          # use your Mac's git/SSH keys on the box
+    ControlMaster auto        # reuse one connection for every ssh/scp/VS Code window
+    ControlPath ~/.ssh/cm-%C
+    ControlPersist 10m
+    ServerAliveInterval 30
+    ServerAliveCountMax 4
+
+Host caddy
+    HostName 192.168.31.197
+    User root
+
+Host adguard
+    HostName 192.168.31.82
+    User root
+
+Host arr
+    HostName 192.168.31.41
+    User arr
+
+Host dokploy
+    HostName 192.168.31.120
+    User root
 
 Host k3s-server
 	HostName 192.168.31.58
 	User marcmarina
+
