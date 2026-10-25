@@ -36,6 +36,8 @@ alias vimconf="nvim ~/.config/nvim/init.lua"
 
 export PATH=$HOME/.local/bin:$HOME/Scripts:$HOME/dotfiles/scripts:$PATH
 export EDITOR=nvim
+# Valid on both macOS and Linux; macOS's bare "UTF-8" breaks Linux when forwarded over SSH
+export LC_CTYPE=C.UTF-8
 
 export FZF_DEFAULT_COMMAND="$FD_COMMAND --type file --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
