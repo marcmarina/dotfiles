@@ -34,6 +34,7 @@ add_plugin neovim
 add_plugin github-cli
 add_plugin helm
 add_plugin uv
+add_plugin argocd
 
 # Install every version in ~/.tool-versions
 cd "$HOME"
