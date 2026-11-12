@@ -97,3 +97,5 @@ VSCODE_BIN="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
